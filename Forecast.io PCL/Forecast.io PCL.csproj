@@ -38,7 +38,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForecastApi.cs" />
+    <Compile Include="Models\CurrentDataPoint.cs" />
+    <Compile Include="Models\HourDataPoint.cs" />
+    <Compile Include="Models\MinuteDataPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestParameters.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
