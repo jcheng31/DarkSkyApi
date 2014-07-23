@@ -10,79 +10,79 @@ namespace ForecastIOPortable.Models
     [DataContract]
     public class DayDataPoint
     {
-        [DataMember(Name = "time")]
-        private int UnixTime { get; set; }
+        [DataMember]
+        private int time;
 
-        [DataMember(Name = "Summary")]
-        public string summary { get; set; }
+        [DataMember(Name = "summary")]
+        public string Summary { get; set; }
 
-        [DataMember(Name = "Icon")]
-        public string icon { get; set; }
+        [DataMember(Name = "icon")]
+        public string Icon { get; set; }
 
         [DataMember]
-        private int sunriseTime { get; set; }
+        private int sunriseTime;
 
         [DataMember]
-        private int sunsetTime { get; set; }
+        private int sunsetTime;
 
-        [DataMember(Name = "MoonPhase")]
-        public float moonPhase { get; set; }
+        [DataMember(Name = "moonPhase")]
+        public float MoonPhase { get; set; }
 
-        [DataMember(Name = "PrecipitationIntensity")]
-        public float precipIntensity { get; set; }
+        [DataMember(Name = "precipIntensity")]
+        public float PrecipitationIntensity { get; set; }
 
-        [DataMember(Name = "MaxPrecipitationIntensity")]
-        public float precipIntensityMax { get; set; }
+        [DataMember(Name = "precipIntensityMax")]
+        public float MaxPrecipitationIntensity { get; set; }
 
-        [DataMember(Name = "PrecipitationProbability")]
-        public float precipProbability { get; set; }
+        [DataMember(Name = "precipProbability")]
+        public float PrecipitationProbability { get; set; }
 
-        [DataMember(Name = "MinTemperature")]
-        public float temperatureMin { get; set; }
-
-        [DataMember]
-        private int temperatureMinTime { get; set; }
-
-        [DataMember(Name = "MaxTemperature")]
-        public float temperatureMax { get; set; }
+        [DataMember(Name = "temperatureMin")]
+        public float MinTemperature { get; set; }
 
         [DataMember]
-        private int temperatureMaxTime { get; set; }
+        private int temperatureMinTime;
 
-        [DataMember(Name = "ApparentMinTemperature")]
-        public float apparentTemperatureMin { get; set; }
-
-        [DataMember]
-        private int apparentTemperatureMinTime { get; set; }
-
-        [DataMember(Name = "ApparentMaxTemperature")]
-        public float apparentTemperatureMax { get; set; }
+        [DataMember(Name = "temperatureMax")]
+        public float MaxTemperature { get; set; }
 
         [DataMember]
-        private int apparentTemperatureMaxTime { get; set; }
+        private int temperatureMaxTime;
 
-        [DataMember(Name = "DewPoint")]
-        public float dewPoint { get; set; }
+        [DataMember(Name = "apparentTemperatureMin")]
+        public float ApparentMinTemperature { get; set; }
 
-        [DataMember(Name = "Humidity")]
-        public float humidity { get; set; }
+        [DataMember]
+        private int apparentTemperatureMinTime;
 
-        [DataMember(Name = "WindSpeed")]
-        public float windSpeed { get; set; }
+        [DataMember(Name = "apparentTemperatureMax")]
+        public float ApparentMaxTemperature { get; set; }
 
-        [DataMember(Name = "WindBearing")]
-        public float windBearing { get; set; }
+        [DataMember]
+        private int apparentTemperatureMaxTime;
 
-        [DataMember(Name = "Visibility")]
-        public float visibility { get; set; }
+        [DataMember(Name = "dewPoint")]
+        public float DewPoint { get; set; }
 
-        [DataMember(Name = "CloudCover")]
-        public float cloudCover { get; set; }
+        [DataMember(Name = "humidity")]
+        public float Humidity { get; set; }
 
-        [DataMember(Name = "Pressure")]
-        public float pressure { get; set; }
+        [DataMember(Name = "windSpeed")]
+        public float WindSpeed { get; set; }
 
-        [DataMember(Name = "Ozone")]
-        public float ozone { get; set; }
+        [DataMember(Name = "windBearing")]
+        public float WindBearing { get; set; }
+
+        [DataMember(Name = "visibility")]
+        public float Visibility { get; set; }
+
+        [DataMember(Name = "cloudCover")]
+        public float CloudCover { get; set; }
+
+        [DataMember(Name = "pressure")]
+        public float Pressure { get; set; }
+
+        [DataMember(Name = "ozone")]
+        public float Ozone { get; set; }
     }
 }

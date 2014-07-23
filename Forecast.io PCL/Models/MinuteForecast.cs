@@ -9,13 +9,13 @@ namespace ForecastIOPortable.Models
     [DataContract]
     public class MinuteForecast
     {
-        [DataMember(Name = "Summary")]
-        public string summary { get; set; }
+        [DataMember(Name = "summary")]
+        public string Summary { get; set; }
 
-        [DataMember(Name = "Icon")]
-        public string icon { get; set; }
+        [DataMember(Name = "icon")]
+        public string Icon { get; set; }
 
-        [DataMember(Name = "Minutes")]
-        public IList<MinuteDataPoint> data { get; set; }
+        [DataMember(Name = "data")]
+        public IList<MinuteDataPoint> Minutes { get; set; }
     }
 }
