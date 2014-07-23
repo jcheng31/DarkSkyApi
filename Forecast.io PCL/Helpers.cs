@@ -23,5 +23,18 @@ namespace ForecastIOPortable
 
             return converted;
         }
+
+        /// <summary>
+        /// Converts a DateTime object to Unix Time (seconds since January 1, 1970).
+        /// </summary>
+        /// <param name="time">The DateTime to convert.</param>
+        /// <returns>The seconds since January 1, 1970.</returns>
+        public static int DateTimeToUnixTime(DateTime time)
+        {
+            var baseTime = new DateTime(1970, 1, 1, 0, 0, 0);
+            var seconds = time.Subtract(baseTime).TotalSeconds;
+
+            return (int)seconds;
+        }
     }
 }

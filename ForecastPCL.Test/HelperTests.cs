@@ -30,5 +30,23 @@ namespace ForecastPCL.Test
 
             Assert.That(actual, Is.EqualTo(expected));
         }
+
+        [Test]
+        public void ConvertBackZero()
+        {
+            var expected = 0;
+            var actual = Helpers.DateTimeToUnixTime(new DateTime(1970, 1, 1, 0, 0, 0));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void ConvertBackSpecificDate()
+        {
+            var expected = 1406086849;
+            var actual = Helpers.DateTimeToUnixTime(new DateTime(2014, 7, 23, 3, 40, 49));
+
+            Assert.That(actual, Is.EqualTo(expected));
+        }
     }
 }
