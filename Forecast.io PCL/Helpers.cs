@@ -9,7 +9,10 @@ namespace ForecastIOPortable
     {
         public static DateTime UnixTimeToDateTime(int secondsSince)
         {
-            return new DateTime();
+            var baseTime = new DateTime(1970, 1, 1, 0, 0, 0);
+            var converted = baseTime.AddSeconds(secondsSince);
+
+            return converted;
         }
     }
 }
