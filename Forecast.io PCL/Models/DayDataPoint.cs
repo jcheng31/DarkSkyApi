@@ -13,6 +13,19 @@ namespace ForecastIOPortable.Models
         [DataMember]
         private int time;
 
+        public DateTime Time
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.time);
+            }
+
+            set
+            {
+                this.time = Helpers.DateTimeToUnixTime(value);
+            }
+        }
+
         [DataMember(Name = "summary")]
         public string Summary { get; set; }
 
@@ -43,11 +56,37 @@ namespace ForecastIOPortable.Models
         [DataMember]
         private int temperatureMinTime;
 
+        public DateTime MinTemperatureTime
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.temperatureMinTime);
+            }
+
+            set
+            {
+                this.temperatureMinTime = Helpers.DateTimeToUnixTime(value);
+            }
+        }
+
         [DataMember(Name = "temperatureMax")]
         public float MaxTemperature { get; set; }
 
         [DataMember]
         private int temperatureMaxTime;
+
+        public DateTime MaxTemperatureTime
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.temperatureMaxTime);
+            }
+
+            set
+            {
+                this.temperatureMaxTime = Helpers.DateTimeToUnixTime(value);
+            }
+        }
 
         [DataMember(Name = "apparentTemperatureMin")]
         public float ApparentMinTemperature { get; set; }
@@ -55,11 +94,37 @@ namespace ForecastIOPortable.Models
         [DataMember]
         private int apparentTemperatureMinTime;
 
+        public DateTime ApparentMinTemperatureTime
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.apparentTemperatureMinTime);
+            }
+
+            set
+            {
+                this.apparentTemperatureMinTime = Helpers.DateTimeToUnixTime(value);
+            }
+        }
+
         [DataMember(Name = "apparentTemperatureMax")]
         public float ApparentMaxTemperature { get; set; }
 
         [DataMember]
         private int apparentTemperatureMaxTime;
+
+        public DateTime ApparentMaxTemperatureTime
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.apparentTemperatureMaxTime);
+            }
+
+            set
+            {
+                this.apparentTemperatureMaxTime = Helpers.DateTimeToUnixTime(value);
+            }
+        }
 
         [DataMember(Name = "dewPoint")]
         public float DewPoint { get; set; }

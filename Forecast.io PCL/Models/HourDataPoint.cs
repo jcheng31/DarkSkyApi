@@ -12,6 +12,19 @@ namespace ForecastIOPortable.Models
         [DataMember]
         private int time;
 
+        public DateTime Time
+        {
+            get
+            {
+                return Helpers.UnixTimeToDateTime(this.time);
+            }
+
+            set
+            {
+                this.time = Helpers.DateTimeToUnixTime(value);
+            }
+        }
+
         [DataMember(Name = "summary")]
         public string Summary { get; set; }
 
