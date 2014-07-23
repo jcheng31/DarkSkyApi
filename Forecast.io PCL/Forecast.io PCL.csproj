@@ -41,7 +41,9 @@
     <Compile Include="Helpers.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />
     <Compile Include="Models\DayDataPoint.cs" />
+    <Compile Include="Models\DayForecast.cs" />
     <Compile Include="Models\HourDataPoint.cs" />
+    <Compile Include="Models\HourForecast.cs" />
     <Compile Include="Models\MinuteDataPoint.cs" />
     <Compile Include="Models\MinuteForecast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
