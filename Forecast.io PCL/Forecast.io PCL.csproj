@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ForecastApi.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />
     <Compile Include="Models\DayDataPoint.cs" />
     <Compile Include="Models\HourDataPoint.cs" />
