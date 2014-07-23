@@ -10,79 +10,79 @@ namespace ForecastIOPortable.Models
     [DataContract]
     public class DayDataPoint
     {
-        [DataMember]
-        private int time;
+        [DataMember(Name = "time")]
+        private int UnixTime { get; set; }
 
         [DataMember(Name = "Summary")]
-        public string summary;
+        public string summary { get; set; }
 
         [DataMember(Name = "Icon")]
-        public string icon;
+        public string icon { get; set; }
 
         [DataMember]
-        private int sunriseTime;
+        private int sunriseTime { get; set; }
 
         [DataMember]
-        private int sunsetTime;
+        private int sunsetTime { get; set; }
 
         [DataMember(Name = "MoonPhase")]
-        public float moonPhase;
+        public float moonPhase { get; set; }
 
         [DataMember(Name = "PrecipitationIntensity")]
-        public float precipIntensity;
+        public float precipIntensity { get; set; }
 
         [DataMember(Name = "MaxPrecipitationIntensity")]
-        public float precipIntensityMax;
+        public float precipIntensityMax { get; set; }
 
         [DataMember(Name = "PrecipitationProbability")]
-        public float precipProbability;
+        public float precipProbability { get; set; }
 
         [DataMember(Name = "MinTemperature")]
-        public float temperatureMin;
+        public float temperatureMin { get; set; }
 
         [DataMember]
-        private int temperatureMinTime;
+        private int temperatureMinTime { get; set; }
 
         [DataMember(Name = "MaxTemperature")]
-        public float temperatureMax;
+        public float temperatureMax { get; set; }
 
         [DataMember]
-        private int temperatureMaxTime;
+        private int temperatureMaxTime { get; set; }
 
         [DataMember(Name = "ApparentMinTemperature")]
-        public float apparentTemperatureMin;
+        public float apparentTemperatureMin { get; set; }
 
         [DataMember]
-        private int apparentTemperatureMinTime;
+        private int apparentTemperatureMinTime { get; set; }
 
         [DataMember(Name = "ApparentMaxTemperature")]
-        public float apparentTemperatureMax;
+        public float apparentTemperatureMax { get; set; }
 
         [DataMember]
-        private int apparentTemperatureMaxTime;
+        private int apparentTemperatureMaxTime { get; set; }
 
         [DataMember(Name = "DewPoint")]
-        public float dewPoint;
+        public float dewPoint { get; set; }
 
         [DataMember(Name = "Humidity")]
-        public float humidity;
+        public float humidity { get; set; }
 
         [DataMember(Name = "WindSpeed")]
-        public float windSpeed;
+        public float windSpeed { get; set; }
 
         [DataMember(Name = "WindBearing")]
-        public float windBearing;
+        public float windBearing { get; set; }
 
         [DataMember(Name = "Visibility")]
-        public float visibility;
+        public float visibility { get; set; }
 
         [DataMember(Name = "CloudCover")]
-        public float cloudCover;
+        public float cloudCover { get; set; }
 
         [DataMember(Name = "Pressure")]
-        public float pressure;
+        public float pressure { get; set; }
 
         [DataMember(Name = "Ozone")]
-        public float ozone;
+        public float ozone { get; set; }
     }
 }
