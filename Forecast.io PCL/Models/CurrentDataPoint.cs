@@ -10,54 +10,54 @@ namespace ForecastIOPortable.Models
     public class CurrentDataPoint
     {
         [DataMember]
-        private int time;
+        private int time { get; set; }
 
         [DataMember(Name = "Summary")]
-        public string summary;
+        public string summary { get; set; }
 
         [DataMember(Name = "Icon")]
-        public string icon;
+        public string icon { get; set; }
 
         [DataMember(Name = "NearestStormDistance")]
-        public float nearestStormDistance;
+        public float nearestStormDistance { get; set; }
 
         [DataMember(Name = "NearestStormBearing")]
-        public float nearestStormBearing;
+        public float nearestStormBearing { get; set; }
 
         [DataMember(Name = "PrecipitationIntensity")]
-        public float precipIntensity;
+        public float precipIntensity { get; set; }
 
         [DataMember(Name = "PrecipitationProbability")]
-        public float precipProbability;
+        public float precipProbability { get; set; }
 
         [DataMember(Name = "Temperature")]
-        public float temperature;
+        public float temperature { get; set; }
 
         [DataMember(Name = "ApparentTemperature")]
-        public float apparentTemperature;
+        public float apparentTemperature { get; set; }
 
         [DataMember(Name = "DewPoint")]
-        public float dewPoint;
+        public float dewPoint { get; set; }
 
         [DataMember(Name = "Humidity")]
-        public float humidity;
+        public float humidity { get; set; }
 
         [DataMember(Name = "WindSpeed")]
-        public float windSpeed;
+        public float windSpeed { get; set; }
 
         [DataMember(Name = "WindBearing")]
-        public float windBearing;
+        public float windBearing { get; set; }
 
         [DataMember(Name = "Visibility")]
-        public float visibility;
+        public float visibility { get; set; }
 
         [DataMember(Name = "CloudCover")]
-        public float cloudCover;
+        public float cloudCover { get; set; }
 
         [DataMember(Name = "Pressure")]
-        public float pressure;
+        public float pressure { get; set; }
 
         [DataMember(Name = "Ozone")]
-        public float ozone;
+        public float ozone { get; set; }
     }
 }

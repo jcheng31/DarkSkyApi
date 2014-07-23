@@ -13,9 +13,9 @@ namespace ForecastIOPortable.Models
         private int time;
 
         [DataMember(Name = "PrecipitationIntensity")]
-        public float precipIntensity;
+        public float precipIntensity { get; set; }
 
         [DataMember(Name = "PrecipitationProbability")]
-        public float precipProbability;
+        public float precipProbability { get; set; }
     }
 }
