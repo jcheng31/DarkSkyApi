@@ -57,6 +57,12 @@ namespace ForecastIOPortable.Models
         public HourForecast Hourly { get; set; }
 
         /// <summary>
+        /// Gets or sets the daily conditions for the next week.
+        /// </summary>
+        [DataMember(Name = "daily")]
+        public DailyForecast Daily { get; set; }
+
+        /// <summary>
         /// Gets or sets the metadata (flags) associated with this forecast.
         /// </summary>
         [DataMember(Name = "flags")]

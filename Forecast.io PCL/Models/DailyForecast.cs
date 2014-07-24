@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ForecastIOPortable.Models
+﻿namespace ForecastIOPortable.Models
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// 
+    /// </summary>
     [DataContract]
-    public class DayForecast
+    public class DailyForecast
     {
         [DataMember(Name = "summary")]
         public string Summary { get; set; }
