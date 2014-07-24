@@ -30,5 +30,8 @@ namespace ForecastIOPortable.Models
 
         [DataMember(Name = "flags")]
         public Flags Flags { get; set; }
+
+        [DataMember(Name = "alerts")]
+        public IList<Alert> Alerts { get; set; }
     }
 }
