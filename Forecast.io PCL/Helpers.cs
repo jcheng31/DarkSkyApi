@@ -8,7 +8,12 @@ namespace ForecastIOPortable
     public class Helpers
     {
         /// <summary>
-        /// Converts Unix Time (seconds since January 1, 1970) to a DateTime object.
+        /// DateTime representing 0 Unix time: January 1, 1970, GMT.
+        /// </summary>
+        private static readonly DateTime BaseUnixTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        /// <summary>
+        /// Converts Unix Time (seconds since January 1, 1970 GMT) to a DateTime object.
         /// </summary>
         /// <param name="secondsSince">
         /// Seconds since January 1, 1970.
@@ -18,8 +23,7 @@ namespace ForecastIOPortable
         /// </returns>
         public static DateTime UnixTimeToDateTime(int secondsSince)
         {
-            var baseTime = new DateTime(1970, 1, 1, 0, 0, 0);
-            var converted = baseTime.AddSeconds(secondsSince);
+            var converted = BaseUnixTime.AddSeconds(secondsSince);
 
             return converted;
         }
@@ -31,8 +35,7 @@ namespace ForecastIOPortable
         /// <returns>The seconds since January 1, 1970.</returns>
         public static int DateTimeToUnixTime(DateTime time)
         {
-            var baseTime = new DateTime(1970, 1, 1, 0, 0, 0);
-            var seconds = time.Subtract(baseTime).TotalSeconds;
+            var seconds = time.Subtract(BaseUnixTime).TotalSeconds;
 
             return (int)seconds;
         }
