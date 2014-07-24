@@ -32,8 +32,17 @@ namespace ForecastIOPortable
         /// </summary>
         private const string SpecificTimeConditionsUrl = "https://api.forecast.io/forecast/{0}/{1},{2},{3?units={4}&extend={5}&exclude={6}&lang={7}";
 
+        /// <summary>
+        /// The API key to use in all requests.
+        /// </summary>
         private string apiKey;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ForecastApi"/> class.
+        /// </summary>
+        /// <param name="key">
+        /// The API key to use.
+        /// </param>
         public ForecastApi(string key)
         {
             this.apiKey = key;
