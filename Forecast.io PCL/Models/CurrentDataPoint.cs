@@ -98,7 +98,7 @@
         public float WindSpeed { get; set; }
 
         /// <summary>
-        /// Gets or sets the direction the wind is coming from in degrees.
+        /// Gets or sets the direction (in degrees) the wind is coming from.
         /// </summary>
         [DataMember(Name = "windBearing")]
         public float WindBearing { get; set; }
