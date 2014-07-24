@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 
 namespace ForecastIOPortable.Models
 {
+    using System.Runtime.Serialization;
+
     [DataContract]
-    public class MinuteForecast
+    public class HourlyForecast
     {
         [DataMember(Name = "summary")]
         public string Summary { get; set; }
@@ -15,7 +16,9 @@ namespace ForecastIOPortable.Models
         [DataMember(Name = "icon")]
         public string Icon { get; set; }
 
+        
         [DataMember(Name = "data")]
-        public IList<MinuteDataPoint> Minutes { get; set; }
+        public IList<HourDataPoint> Hours { get; set; } 
+
     }
 }

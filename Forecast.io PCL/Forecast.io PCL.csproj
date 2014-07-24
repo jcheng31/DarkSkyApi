@@ -42,13 +42,13 @@
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />
     <Compile Include="Models\DayDataPoint.cs" />
-    <Compile Include="Models\DayForecast.cs" />
+    <Compile Include="Models\DailyForecast.cs" />
     <Compile Include="Models\Flags.cs" />
     <Compile Include="Models\Forecast.cs" />
     <Compile Include="Models\HourDataPoint.cs" />
-    <Compile Include="Models\HourForecast.cs" />
+    <Compile Include="Models\HourlyForecast.cs" />
     <Compile Include="Models\MinuteDataPoint.cs" />
-    <Compile Include="Models\MinuteForecast.cs" />
+    <Compile Include="Models\MinutelyForecast.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestParameters.cs" />
   </ItemGroup>

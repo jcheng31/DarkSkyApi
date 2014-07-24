@@ -48,13 +48,13 @@ namespace ForecastIOPortable.Models
         /// Gets or sets the minute-by-minute conditions for the next hour.
         /// </summary>
         [DataMember(Name = "minutely")]
-        public MinuteForecast Minutely { get; set; }
+        public MinutelyForecast Minutely { get; set; }
 
         /// <summary>
         /// Gets or sets the hour-by-hour conditions for the next two days.
         /// </summary>
         [DataMember(Name = "hourly")]
-        public HourForecast Hourly { get; set; }
+        public HourlyForecast Hourly { get; set; }
 
         /// <summary>
         /// Gets or sets the daily conditions for the next week.
