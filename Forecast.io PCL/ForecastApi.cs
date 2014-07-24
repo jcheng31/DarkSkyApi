@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ForecastIOPortable
+﻿namespace ForecastIOPortable
 {
+    /// <summary>
+    /// Represents the Forecast.IO service.
+    /// </summary>
     public class ForecastApi
     {
         /// <summary>
