@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ForecastIOPortable
+﻿namespace ForecastIOPortable
 {
+    using System;
+
+    /// <summary>
+    /// Various helper methods.
+    /// </summary>
     public class Helpers
     {
         /// <summary>

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-
-namespace ForecastIOPortable.Models
+﻿namespace ForecastIOPortable.Models
 {
+    using System;
+    using System.Runtime.Serialization;
+
     [DataContract]
     public class HourDataPoint
     {

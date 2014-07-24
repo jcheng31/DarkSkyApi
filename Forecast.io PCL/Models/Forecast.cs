@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ForecastIOPortable.Models
+﻿namespace ForecastIOPortable.Models
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
     /// <summary>

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ForecastIOPortable.Models
+﻿namespace ForecastIOPortable.Models
 {
+    using System.Collections.Generic;
     using System.Runtime.Serialization;
 
+    /// <summary>
+    /// Metadata associated with a forecast.
+    /// </summary>
     [DataContract]
     public class Flags
     {
@@ -59,7 +58,7 @@ namespace ForecastIOPortable.Models
         public IList<string> MetnoLicense { get; set; }
 
         /// <summary>
-        /// Gets of sets the type of units that are used for the data in this forecast.
+        /// Gets or sets the type of units that are used for the data in this forecast.
         /// </summary>
         [DataMember(Name = "units")]
         public string Units { get; set; }

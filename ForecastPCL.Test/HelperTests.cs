@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ForecastPCL.Test
+﻿namespace ForecastPCL.Test
 {
+    using System;
     using ForecastIOPortable;
-
     using NUnit.Framework;
 
     [TestFixture]
-    class HelperTests
+    public class HelperTests
     {
         [Test]
         public void ConvertZero()
