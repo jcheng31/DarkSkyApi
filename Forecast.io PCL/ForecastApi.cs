@@ -1,7 +1,6 @@
 ﻿namespace ForecastIOPortable
 {
     using System;
-    using System.Net;
     using System.Net.Http;
     using System.Runtime.Serialization.Json;
     using System.Threading.Tasks;
