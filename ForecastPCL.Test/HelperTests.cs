@@ -4,9 +4,16 @@
     using ForecastIOPortable;
     using NUnit.Framework;
 
+    /// <summary>
+    /// Unit tests for the Helpers class.
+    /// </summary>
     [TestFixture]
     public class HelperTests
     {
+        /// <summary>
+        /// Tests conversion of 0 Unix time to a DateTime object.
+        /// Ensures we're using the correct base time.
+        /// </summary>
         [Test]
         public void ConvertZero()
         {
@@ -16,6 +23,10 @@
             Assert.That(actual, Is.EqualTo(expected));
         }
 
+        /// <summary>
+        /// Tests conversion of a particular date and time in Unix time to a known DateTime.
+        /// Ensures such conversion works as it should.
+        /// </summary>
         [Test]
         public void ConvertSpecificDate()
         {
@@ -25,6 +36,10 @@
             Assert.That(actual, Is.EqualTo(expected));
         }
 
+        /// <summary>
+        /// Tests conversion of a DateTime set to the Unix base back to an integer.
+        /// Ensures we're using the correct base time.
+        /// </summary>
         [Test]
         public void ConvertBackZero()
         {
@@ -34,6 +49,10 @@
             Assert.That(actual, Is.EqualTo(expected));
         }
 
+        /// <summary>
+        /// Tests conversion of a known DateTime back to an integer.
+        /// Ensures such conversion works as it should.
+        /// </summary>
         [Test]
         public void ConvertBackSpecificDate()
         {
