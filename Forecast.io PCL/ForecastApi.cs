@@ -41,7 +41,7 @@
         /// <summary>
         /// The API key to use in all requests.
         /// </summary>
-        private string apiKey;
+        private readonly string apiKey;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ForecastApi"/> class.
