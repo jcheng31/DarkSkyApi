@@ -77,6 +77,11 @@
                 var formattedRequest = string.Format(CurrentConditionsUrl, this.apiKey, latitude, longitude, "ca", string.Empty, string.Empty, string.Empty);
                 var response = await client.GetAsync(formattedRequest);
 
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new HttpRequestException("Couldn't retrieve data: status " + response.StatusCode);
+                }
+
                 using (var responseStream = await response.Content.ReadAsStreamAsync())
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Forecast));
