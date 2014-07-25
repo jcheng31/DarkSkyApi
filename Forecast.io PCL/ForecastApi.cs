@@ -1,7 +1,15 @@
 ﻿namespace ForecastIOPortable
 {
+    using System;
+    using System.Net;
+    using System.Net.Http;
+    using System.Runtime.Serialization.Json;
+    using System.Threading.Tasks;
+    using ForecastIOPortable.Models;
+
     /// <summary>
-    /// Represents the Forecast.IO service.
+    /// The Forecast.IO service. Returns weather data for given locations,
+    /// and provides API usage information.
     /// </summary>
     public class ForecastApi
     {
@@ -44,6 +52,40 @@
         public ForecastApi(string key)
         {
             this.apiKey = key;
+        }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude.
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <returns>
+        /// Forecast data.
+        /// </returns>
+        public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude)
+        {
+            if (string.IsNullOrEmpty(this.apiKey))
+            {
+                throw new InvalidOperationException("No API key was given.");
+            }
+
+            using (var client = new HttpClient())
+            {
+                var formattedRequest = string.Format(CurrentConditionsUrl, this.apiKey, latitude, longitude, "ca", string.Empty, string.Empty, string.Empty);
+                var response = await client.GetAsync(formattedRequest);
+
+                using (var responseStream = await response.Content.ReadAsStreamAsync())
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(Forecast));
+                    var result = serializer.ReadObject(responseStream);
+
+                    return result as Forecast;
+                }
+            }
         }
     }
 }
