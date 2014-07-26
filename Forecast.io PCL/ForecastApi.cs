@@ -204,6 +204,23 @@
                 }
             }
         }
+        
+        /// <summary>
+        /// Creates a HttpClientHandler that supports compression for responses.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="HttpClientHandler"/> with compression support.
+        /// </returns>
+        private static HttpClientHandler GetCompressionHandler()
+        {
+            var compressionHandler = new HttpClientHandler();
+            if (compressionHandler.SupportsAutomaticDecompression)
+            {
+                compressionHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            }
+
+            return compressionHandler;
+        }
 
         /// <summary>
         /// Updates the number of API calls made using the value provided
@@ -219,22 +236,6 @@
             {
                 this.ApiCallsMade = int.Parse(apiCallHeaderValues.First());
             }
-        }
-
-        /// <summary>
-        /// Creates a HttpClientHandler that supports compression for responses.
-        /// </summary>
-        /// <returns>
-        /// The <see cref="HttpClientHandler"/> with compression support.
-        /// </returns>
-        private static HttpClientHandler GetCompressionHandler()
-        {
-            var compressionHandler = new HttpClientHandler();
-            if (compressionHandler.SupportsAutomaticDecompression)
-            {
-                compressionHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            }
-            return compressionHandler;
         }
 
         /// <summary>
