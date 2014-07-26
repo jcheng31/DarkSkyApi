@@ -9,6 +9,11 @@
         Auto // auto
     }
 
+    public enum Extend
+    {
+        Hourly // hourly
+    }
+
     public enum Exclude
     {
         Currently, // currently
