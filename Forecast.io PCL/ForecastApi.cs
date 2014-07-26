@@ -1,6 +1,8 @@
 ﻿namespace ForecastIOPortable
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Runtime.Serialization.Json;
@@ -68,20 +70,67 @@
         /// </returns>
         public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude)
         {
-            if (string.IsNullOrEmpty(this.apiKey))
-            {
-                throw new InvalidOperationException("No API key was given.");
-            }
+            return await this.GetWeatherDataAsync(latitude, longitude, Unit.US, new Extend[0], new Exclude[0], Language.English);
+        }
 
-            var compressionHandler = new HttpClientHandler();
-            if (compressionHandler.SupportsAutomaticDecompression)
-            {
-                compressionHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
-            }
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude.
+        /// <para>Allows specification of units of measurement, language used, extended hourly forecasts,
+        /// and exclusion of data blocks.</para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="unit">
+        /// The units of measurement to use.
+        /// </param>
+        /// <param name="extends">
+        /// The type of forecast to retrieve extended results for. Currently limited to hourly blocks.
+        /// </param>
+        /// <param name="excludes">
+        /// Any blocks that should be excluded from the request.
+        /// </param>
+        /// <param name="language">
+        /// The language to use for summaries.
+        /// </param>
+        /// <returns>
+        /// Forecast data.
+        /// </returns>
+        /// <exception cref="HttpRequestException">
+        /// Thrown when the service returned anything other than a 200 (Status OK) code.
+        /// </exception>
+        public async Task<Forecast> GetWeatherDataAsync(
+            double latitude,
+            double longitude,
+            Unit unit,
+            IList<Extend> extends,
+            IList<Exclude> excludes,
+            Language language)
+        {
+            this.ThrowExceptionIfApiKeyInvalid();
+
+            var compressionHandler = GetCompressionHandler();
+
+            var unitValue = unit.ToValue();
+            var extendList = string.Join(",", extends.Select(x => x.ToValue()));
+            var excludeList = string.Join(",", excludes.Select(x => x.ToValue()));
+            var languageValue = language.ToValue();
+
+            var formattedRequest = string.Format(
+                CurrentConditionsUrl,
+                this.apiKey,
+                latitude,
+                longitude,
+                unitValue,
+                extendList,
+                excludeList,
+                languageValue);
 
             using (var client = new HttpClient(compressionHandler))
             {
-                var formattedRequest = string.Format(CurrentConditionsUrl, this.apiKey, latitude, longitude, "ca", string.Empty, string.Empty, string.Empty);
                 var response = await client.GetAsync(formattedRequest);
 
                 if (!response.IsSuccessStatusCode)
@@ -96,6 +145,37 @@
 
                     return result as Forecast;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Creates a HttpClientHandler that supports compression for responses.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="HttpClientHandler"/> with compression support.
+        /// </returns>
+        private static HttpClientHandler GetCompressionHandler()
+        {
+            var compressionHandler = new HttpClientHandler();
+            if (compressionHandler.SupportsAutomaticDecompression)
+            {
+                compressionHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            }
+            return compressionHandler;
+        }
+
+        /// <summary>
+        /// Checks if the user provided a non-null API key during initialization,
+        /// and throws an exception if not.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if the API key is null or the empty string.
+        /// </exception>
+        private void ThrowExceptionIfApiKeyInvalid()
+        {
+            if (string.IsNullOrEmpty(this.apiKey))
+            {
+                throw new InvalidOperationException("No API key was given.");
             }
         }
     }
