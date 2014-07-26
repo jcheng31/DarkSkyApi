@@ -1,6 +1,7 @@
 ﻿namespace ForecastIOPortable
 {
     using System;
+    using System.Net;
     using System.Net.Http;
     using System.Runtime.Serialization.Json;
     using System.Threading.Tasks;
@@ -72,7 +73,13 @@
                 throw new InvalidOperationException("No API key was given.");
             }
 
-            using (var client = new HttpClient())
+            var compressionHandler = new HttpClientHandler();
+            if (compressionHandler.SupportsAutomaticDecompression)
+            {
+                compressionHandler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            }
+
+            using (var client = new HttpClient(compressionHandler))
             {
                 var formattedRequest = string.Format(CurrentConditionsUrl, this.apiKey, latitude, longitude, "ca", string.Empty, string.Empty, string.Empty);
                 var response = await client.GetAsync(formattedRequest);
