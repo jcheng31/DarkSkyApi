@@ -87,11 +87,39 @@
         /// The units of measurement to use.
         /// </param>
         /// <returns>
-        /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
         public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude, Unit units)
         {
             return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], Language.English);
+        }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude.
+        /// <para>Allows specification of units of measurement and blocks to be excluded.</para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="units">
+        /// The units of measurement to use.
+        /// </param>
+        /// <param name="excludes">
+        /// Any blocks that should be excluded from the request.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// </returns>
+        public async Task<Forecast> GetWeatherDataAsync(
+            double latitude,
+            double longitude,
+            Unit units,
+            IList<Exclude> excludes)
+        {
+            return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], excludes, Language.English);
         }
 
         /// <summary>
@@ -118,7 +146,7 @@
         /// The language to use for summaries.
         /// </param>
         /// <returns>
-        /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
         /// <exception cref="HttpRequestException">
         /// Thrown when the service returned anything other than a 200 (Status OK) code.
