@@ -66,7 +66,7 @@
         /// The longitude to retrieve data for.
         /// </param>
         /// <returns>
-        /// Forecast data.
+        /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
         public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude)
         {
@@ -87,7 +87,7 @@
         /// The units of measurement to use.
         /// </param>
         /// <returns>
-        /// Forecast data.
+        /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
         public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude, Unit units)
         {
@@ -118,7 +118,7 @@
         /// The language to use for summaries.
         /// </param>
         /// <returns>
-        /// Forecast data.
+        /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
         /// <exception cref="HttpRequestException">
         /// Thrown when the service returned anything other than a 200 (Status OK) code.
