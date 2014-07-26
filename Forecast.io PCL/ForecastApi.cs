@@ -75,6 +75,27 @@
 
         /// <summary>
         /// Asynchronously retrieves weather data for a particular latitude and longitude.
+        /// <para>Allows specification of units of measurement.</para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="units">
+        /// The units of measurement to use.
+        /// </param>
+        /// <returns>
+        /// Forecast data.
+        /// </returns>
+        public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude, Unit units)
+        {
+            return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], Language.English);
+        }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude.
         /// <para>Allows specification of units of measurement, language used, extended hourly forecasts,
         /// and exclusion of data blocks.</para>
         /// </summary>
