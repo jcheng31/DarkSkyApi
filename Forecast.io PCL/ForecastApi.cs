@@ -55,6 +55,12 @@
         {
             this.apiKey = key;
         }
+        
+        /// <summary>
+        /// Gets the number of API calls made today using the given API key.
+        /// <para>This property will be null until a request has been made.</para>
+        /// </summary>
+        public int? ApiCallsMade { get; private set; }
 
         /// <summary>
         /// Asynchronously retrieves weather data for a particular latitude and longitude.
@@ -187,6 +193,8 @@
                     throw new HttpRequestException("Couldn't retrieve data: status " + response.StatusCode);
                 }
 
+                this.UpdateApiCallsMade(response);
+
                 using (var responseStream = await response.Content.ReadAsStreamAsync())
                 {
                     var serializer = new DataContractJsonSerializer(typeof(Forecast));
@@ -194,6 +202,22 @@
 
                     return result as Forecast;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Updates the number of API calls made using the value provided
+        /// in the response to a weather data request.
+        /// </summary>
+        /// <param name="response">
+        /// Response received after successfully requesting weather data.
+        /// </param>
+        private void UpdateApiCallsMade(HttpResponseMessage response)
+        {
+            IEnumerable<string> apiCallHeaderValues;
+            if (response.Headers.TryGetValues("X-Forecast-API-Calls", out apiCallHeaderValues))
+            {
+                this.ApiCallsMade = int.Parse(apiCallHeaderValues.First());
             }
         }
 
