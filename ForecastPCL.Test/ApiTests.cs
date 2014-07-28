@@ -1,5 +1,6 @@
 ﻿namespace ForecastPCL.Test
 {
+    using System.Collections.Generic;
     using System.Configuration;
 
     using ForecastIOPortable;
@@ -63,11 +64,40 @@
             Assert.That(result.Currently, Is.Not.Null);
         }
 
+        /// <summary>
+        /// Checks that specifying a block to be excluded from the results
+        /// will cause it to be null in the returned forecast.
+        /// </summary>
+        [Test]
+        public async void ExclusionWorksCorrectly()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var exclusionList = new List<Exclude> { Exclude.Minutely };
 
-            var result = await client.GetWeatherDataAsync(1, 1);
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.US, exclusionList);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Currently, Is.Not.Null);
+            Assert.That(result.Minutely, Is.Null);
+        }
+
+        /// <summary>
+        /// Checks that specifying multiple blocks to be excluded causes
+        /// them to left out.
+        /// </summary>
+        [Test]
+        public async void MultipleExclusionWorksCorrectly()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var exclusionList = new List<Exclude> { Exclude.Minutely, Exclude.Hourly, Exclude.Daily };
+
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.US, exclusionList);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+            Assert.That(result.Minutely, Is.Null);
+            Assert.That(result.Hourly, Is.Null);
+            Assert.That(result.Daily, Is.Null);
         }
     }
 }
