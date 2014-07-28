@@ -99,5 +99,19 @@
             Assert.That(result.Hourly, Is.Null);
             Assert.That(result.Daily, Is.Null);
         }
+
+        /// <summary>
+        /// Checks that the service returns data using the specified units of measurement.
+        /// </summary>
+        [Test]
+        public async void UnitsCanBeSpecified()
+        {
+            var client = new ForecastApi(this.apiKey);
+
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.CA);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Flags.Units, Is.EqualTo(Unit.CA.ToValue()));
+        }
     }
 }
