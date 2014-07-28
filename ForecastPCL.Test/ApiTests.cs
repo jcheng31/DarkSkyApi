@@ -13,13 +13,16 @@
     [TestFixture]
     public class ApiTests
     {
-        private string apiKey;
-
         // These coordinates came from the Forecast API documentation,
         // and should return forecasts with all blocks.
         private const double AlcatrazLatitude = 37.8267;
         private const double AlcatrazLongitude = -122.423;
 
+        /// <summary>
+        /// API key to be used for testing. This should be specified in the
+        /// test project's app.config file.
+        /// </summary>
+        private string apiKey;
 
         [TestFixtureSetUp]
         public void SetUp()
