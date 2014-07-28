@@ -219,20 +219,85 @@
             {
                 var response = await client.GetAsync(formattedRequest);
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    throw new HttpRequestException("Couldn't retrieve data: status " + response.StatusCode);
-                }
+                ThrowExceptionIfResponseError(response);
 
                 this.UpdateApiCallsMade(response);
 
-                using (var responseStream = await response.Content.ReadAsStreamAsync())
-                {
-                    var serializer = new DataContractJsonSerializer(typeof(Forecast));
-                    var result = serializer.ReadObject(responseStream);
+                return await ParseForecastFromResponse(response);
+            }
+        }
 
-                    return result as Forecast;
-                }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude, on
+        /// a given day.
+        /// <para>
+        /// Only conditions for the day are given (i.e. the time is ignored, and taken to be the
+        /// current time).
+        /// </para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="date">
+        /// The date to retrieve data for.
+        /// </param>
+        /// <param name="unit">
+        /// The units of measurement to use.
+        /// </param>
+        /// <param name="extends">
+        /// The type of forecast to retrieve extended results for. Currently limited to hourly blocks.
+        /// </param>
+        /// <param name="excludes">
+        /// Any blocks that should be excluded from the request.
+        /// </param>
+        /// <param name="language">
+        /// The language to use for summaries.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// </returns>
+        public async Task<Forecast> GetTimeMachineWeatherAsync(
+            double latitude,
+            double longitude,
+            DateTime date,
+            Unit unit,
+            IList<Extend> extends,
+            IList<Exclude> excludes,
+            Language language)
+        {
+            this.ThrowExceptionIfApiKeyInvalid();
+
+            var unitValue = unit.ToValue();
+            var extendList = string.Join(",", extends.Select(x => x.ToValue()));
+            var excludeList = string.Join(",", excludes.Select(x => x.ToValue()));
+            var languageValue = language.ToValue();
+            var unixTime = Helpers.DateTimeToUnixTime(date);
+
+            var formattedRequest = string.Format(
+                SpecificTimeConditionsUrl,
+                this.apiKey,
+                latitude,
+                longitude,
+                unixTime,
+                unitValue,
+                extendList,
+                excludeList,
+                languageValue);
+
+            var compressionHandler = GetCompressionHandler();
+            using (var client = new HttpClient(compressionHandler))
+            {
+                var response = await client.GetAsync(formattedRequest);
+
+                ThrowExceptionIfResponseError(response);
+
+                this.UpdateApiCallsMade(response);
+
+                return await ParseForecastFromResponse(response);
             }
         }
         
@@ -251,6 +316,46 @@
             }
 
             return compressionHandler;
+        }
+
+        /// <summary>
+        /// Throws an exception if the given response didn't have a status code
+        /// indicating success, with the status code included in the exception message.
+        /// </summary>
+        /// <param name="response">
+        /// The response.
+        /// </param>
+        /// <exception cref="HttpRequestException">
+        /// Thrown if the response did not have a status code indicating success.
+        /// </exception>
+        private static void ThrowExceptionIfResponseError(HttpResponseMessage response)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new HttpRequestException("Couldn't retrieve data: status " + response.StatusCode);
+            }
+        }
+
+        /// <summary>
+        /// Given a successful response from the Forecast service, parses the
+        /// weather data contained within and returns it.
+        /// </summary>
+        /// <param name="response">
+        /// A successful response containing weather data.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> containing the
+        /// weather data from the response.
+        /// </returns>
+        private static async Task<Forecast> ParseForecastFromResponse(HttpResponseMessage response)
+        {
+            using (var responseStream = await response.Content.ReadAsStreamAsync())
+            {
+                var serializer = new DataContractJsonSerializer(typeof(Forecast));
+                var result = serializer.ReadObject(responseStream);
+
+                return result as Forecast;
+            }
         }
 
         /// <summary>
