@@ -12,6 +12,20 @@
     [TestFixture]
     public class ApiTests
     {
+        private string apiKey;
+
+        // These coordinates came from the Forecast API documentation,
+        // and should return forecasts with all blocks.
+        private const double AlcatrazLatitude = 37.8267;
+        private const double AlcatrazLongitude = -122.423;
+
+
+        [TestFixtureSetUp]
+        public void SetUp()
+        {
+            this.apiKey = ConfigurationManager.AppSettings["ApiKey"];
+        }
+
         /// <summary>
         /// Checks that attempting to retrieve data with a null API key throws
         /// an exception.
@@ -20,7 +34,7 @@
         public void NullKeyThrowsException()
         {
             var client = new ForecastApi(null);
-            Assert.That(async () => await client.GetWeatherDataAsync(1, 1), Throws.InvalidOperationException);
+            Assert.That(async () => await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude), Throws.InvalidOperationException);
         }
 
         /// <summary>
@@ -31,7 +45,7 @@
         public void EmptyKeyThrowsException()
         {
             var client = new ForecastApi(string.Empty);
-            Assert.That(async () => await client.GetWeatherDataAsync(1, 1), Throws.InvalidOperationException);
+            Assert.That(async () => await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude), Throws.InvalidOperationException);
         }
 
         /// <summary>
@@ -41,8 +55,14 @@
         [Test]
         public async void ValidKeyRetrievesData()
         {
-            var key = ConfigurationManager.AppSettings["ApiKey"];
-            var client = new ForecastApi(key);
+            var client = new ForecastApi(this.apiKey);
+
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
 
             var result = await client.GetWeatherDataAsync(1, 1);
 
