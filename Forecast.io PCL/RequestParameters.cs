@@ -2,59 +2,194 @@
 {
     using System;
 
+    /// <summary>
+    /// Units of measurement supported by the Forecast service.
+    /// </summary>
     public enum Unit
     {
-        US, // us
+        /// <summary>
+        /// US units of measurement.
+        /// <para>
+        /// Summaries containing temperature or snow accumulation units have
+        /// their values in degrees Fahrenheit or inches (respectively).
+        /// Nearest storm distance: Miles
+        /// Precipitation intensity: Inches per hour
+        /// Precipitation accumulation: Inches
+        /// Temperature: Fahrenheit
+        /// Dew Point: Fahrenheit
+        /// Wind Speed: Miles per hour
+        /// Pressure: Millibars
+        /// Visibility: Miles
+        /// </para>
+        /// </summary>
+        US,
 
-        SI, // si
+        /// <summary>
+        /// SI units of measurement.
+        /// <para>
+        /// Summaries containing temperature or snow accumulation units have
+        /// their values in degrees Celsius or centimeters (respectively).
+        /// Nearest storm distance: Kilometers
+        /// Precipitation intensity: Millimeters per hour
+        /// Precipitation accumulation: Centimeters
+        /// Temperature: Celsius
+        /// Dew Point: Celsius
+        /// Wind Speed: Meters per second
+        /// Pressure: Hectopascals (equivalent to millibars)
+        /// Visibility: Kilometers
+        /// </para>
+        /// </summary>
+        SI,
 
-        CA, // ca
+        /// <summary>
+        /// Canadian units of measurement. The same as SI, but with 
+        /// kilometers per hour used for Wind Speed.
+        /// <para>
+        /// Summaries containing temperature or snow accumulation units have
+        /// their values in degrees Celsius or centimeters (respectively).
+        /// Nearest storm distance: Kilometers
+        /// Precipitation intensity: Millimeters per hour
+        /// Precipitation accumulation: Centimeters
+        /// Temperature: Celsius
+        /// Dew Point: Celsius
+        /// Wind Speed: Kilometers per hour
+        /// Pressure: Hectopascals (equivalent to millibars)
+        /// Visibility: Kilometers
+        /// </para>
+        /// </summary>
+        CA,
 
-        UK, // uk
+        /// <summary>
+        /// UK units of measurement. The same as SI, but with miles per
+        /// hour used for Wind Speed.
+        /// <para>
+        /// Summaries containing temperature or snow accumulation units have
+        /// their values in degrees Celsius or centimeters (respectively).
+        /// Nearest storm distance: Kilometers
+        /// Precipitation intensity: Millimeters per hour
+        /// Precipitation accumulation: Centimeters
+        /// Temperature: Celsius
+        /// Dew Point: Celsius
+        /// Wind Speed: Miles per hour
+        /// Pressure: Hectopascals (equivalent to millibars)
+        /// Visibility: Kilometers
+        /// </para>
+        /// </summary>
+        UK,
 
-        Auto // auto
+        /// <summary>
+        /// Automatically choose units of measurement based on geographic location.
+        /// </summary>
+        Auto
     }
 
-
-
-
+    /// <summary>
+    /// Data blocks that can have their ranges extended.
+    /// </summary>
     public enum Extend
     {
-        Hourly // hourly
+        /// <summary>
+        /// Extends the hourly forecast block to the next seven
+        /// days from just the next two.
+        /// <para>Ignored when making time machine requests.</para>
+        /// </summary>
+        Hourly
     }
 
+    /// <summary>
+    /// Data blocks that can be excluded from a request.
+    /// </summary>
     public enum Exclude
     {
-        Currently, // currently
+        /// <summary>
+        /// The current data block, containing current weather conditions.
+        /// </summary>
+        Currently,
 
-        Minutely, // minutely
+        /// <summary>
+        /// The minutely data block, containing minute-by-minute data for
+        /// the next hour.
+        /// </summary>
+        Minutely,
 
-        Hourly, // hourly
+        /// <summary>
+        /// The hourly data block, containing hour-by-hour data for
+        /// the next two days (or the next week, if extended).
+        /// </summary>
+        Hourly,
 
-        Daily, // daily
+        /// <summary>
+        /// The daily data block, containing day-by-day data for
+        /// the next week.
+        /// </summary>
+        Daily,
 
-        Alerts, // alerts
+        /// <summary>
+        /// A list of any severe weather alerts issued for the requested location.
+        /// </summary>
+        Alerts,
 
-        Flags // flags
+        /// <summary>
+        /// Associated metadata related to the request.
+        /// </summary>
+        Flags
     }
 
+    /// <summary>
+    /// Languages that the service can return text summaries in.
+    /// </summary>
     public enum Language
     {
-        German, // de
+        /// <summary>
+        /// German language.
+        /// </summary>
+        German,
 
-        English, // en
+        /// <summary>
+        /// English language.
+        /// </summary>
+        English,
 
-        Spanish, // es
+        /// <summary>
+        /// Spanish language.
+        /// </summary>
+        Spanish,
 
-        French, // fr
+        /// <summary>
+        /// French language.
+        /// </summary>
+        French,
 
-        Dutch, // nl
+        /// <summary>
+        /// Dutch language.
+        /// </summary>
+        Dutch,
 
-        Tetum // tet
+        /// <summary>
+        /// Tetum language.
+        /// </summary>
+        Tetum
     }
 
+    /// <summary>
+    /// Extension methods for the request parameter enumerations.
+    /// </summary>
     public static class ParameterExtensions
     {
+        /// <summary>
+        /// Gives the Forecast Service-friendly name for
+        /// this parameter.
+        /// </summary>
+        /// <param name="self">
+        /// The parameter to convert.
+        /// </param>
+        /// <returns>
+        /// The service-friendly <see cref="string"/>.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the parameter does not have a corresponding
+        /// friendly name.
+        /// </exception>
         public static string ToValue(this Unit self)
         {
             switch (self)
@@ -74,6 +209,20 @@
             }
         }
 
+        /// <summary>
+        /// Gives the Forecast Service-friendly name for
+        /// this parameter.
+        /// </summary>
+        /// <param name="self">
+        /// The parameter to convert.
+        /// </param>
+        /// <returns>
+        /// The service-friendly <see cref="string"/>.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the parameter does not have a corresponding
+        /// friendly name.
+        /// </exception>
         public static string ToValue(this Extend self)
         {
             switch (self)
@@ -85,6 +234,20 @@
             }
         }
 
+        /// <summary>
+        /// Gives the Forecast Service-friendly name for
+        /// this parameter.
+        /// </summary>
+        /// <param name="self">
+        /// The parameter to convert.
+        /// </param>
+        /// <returns>
+        /// The service-friendly <see cref="string"/>.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the parameter does not have a corresponding
+        /// friendly name.
+        /// </exception>
         public static string ToValue(this Exclude self)
         {
             switch (self)
@@ -106,6 +269,20 @@
             }
         }
 
+        /// <summary>
+        /// Gives the Forecast Service-friendly name for
+        /// this parameter.
+        /// </summary>
+        /// <param name="self">
+        /// The parameter to convert.
+        /// </param>
+        /// <returns>
+        /// The service-friendly <see cref="string"/>.
+        /// </returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// Thrown when the parameter does not have a corresponding
+        /// friendly name.
+        /// </exception>
         public static string ToValue(this Language self)
         {
             switch (self)
