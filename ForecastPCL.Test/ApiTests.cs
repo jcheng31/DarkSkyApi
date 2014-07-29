@@ -25,6 +25,9 @@
         /// </summary>
         private string apiKey;
 
+        /// <summary>
+        /// Sets up all tests by retrieving the API key from app.config.
+        /// </summary>
         [TestFixtureSetUp]
         public void SetUp()
         {

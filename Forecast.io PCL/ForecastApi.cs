@@ -474,7 +474,6 @@
             return compressionHandler;
         }
 
-
         /// <summary>
         /// Throws an exception if the given response didn't have a status code
         /// indicating success, with the status code included in the exception message.
