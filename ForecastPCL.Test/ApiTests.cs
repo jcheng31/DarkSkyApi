@@ -132,5 +132,38 @@
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Currently, Is.Not.Null);
         }
+
+        /// <summary>
+        /// Checks that specifying a block to be excluded from forecasts for past dates
+        /// will cause it to be null in the returned forecast.
+        /// </summary>
+        [Test]
+        public async void TimeMachineExclusionWorksCorrectly()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+            var exclusionList = new List<Exclude> { Exclude.Hourly };
+
+            var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date, Unit.US, exclusionList);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+            Assert.That(result.Hourly, Is.Null);
+        }
+
+        /// <summary>
+        /// Checks that the service returns data using the specified units of measurement.
+        /// </summary>
+        [Test]
+        public async void TimeMachineUnitsCanBeSpecified()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date, Unit.CA);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Flags.Units, Is.EqualTo(Unit.CA.ToValue()));
+        }
     }
 }

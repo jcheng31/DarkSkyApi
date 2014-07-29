@@ -342,7 +342,7 @@
         /// </param>
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
-        /// </returns>>
+        /// </returns>
         public async Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
@@ -358,6 +358,54 @@
                     unit,
                     new Extend[0],
                     new Exclude[0],
+                    Language.English);
+        }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude, on
+        /// a given day.
+        /// <para>
+        /// Only conditions for the day are given (i.e. the time is ignored, and taken to be the
+        /// current time).
+        /// </para>
+        /// <para>
+        /// Allows specification of units of measurement and exclusion of data blocks.
+        /// </para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="date">
+        /// The date to retrieve data for.
+        /// </param>
+        /// <param name="unit">
+        /// The units of measurement to use.
+        /// </param>
+        /// <param name="excludes">
+        /// Any blocks that should be excluded from the request.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// </returns>
+        public async Task<Forecast> GetTimeMachineWeatherAsync(
+            double latitude,
+            double longitude,
+            DateTime date,
+            Unit unit,
+            IList<Exclude> excludes)
+        {
+            return
+                await
+                this.GetTimeMachineWeatherAsync(
+                    latitude,
+                    longitude,
+                    date,
+                    unit,
+                    new Extend[0],
+                    excludes,
                     Language.English);
         }
 
