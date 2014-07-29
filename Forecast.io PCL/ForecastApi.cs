@@ -198,14 +198,12 @@
         {
             this.ThrowExceptionIfApiKeyInvalid();
 
-            var compressionHandler = GetCompressionHandler();
-
             var unitValue = unit.ToValue();
             var extendList = string.Join(",", extends.Select(x => x.ToValue()));
             var excludeList = string.Join(",", excludes.Select(x => x.ToValue()));
             var languageValue = language.ToValue();
 
-            var formattedRequest = string.Format(
+            var requestUrl = string.Format(
                 CurrentConditionsUrl,
                 this.apiKey,
                 latitude,
@@ -215,18 +213,8 @@
                 excludeList,
                 languageValue);
 
-            using (var client = new HttpClient(compressionHandler))
-            {
-                var response = await client.GetAsync(formattedRequest);
-
-                ThrowExceptionIfResponseError(response);
-
-                this.UpdateApiCallsMade(response);
-
-                return await ParseForecastFromResponse(response);
-            }
+            return await this.GetForecastFromUrl(requestUrl);
         }
-
 
         /// <summary>
         /// Asynchronously retrieves weather data for a particular latitude and longitude, on
@@ -277,7 +265,7 @@
             var languageValue = language.ToValue();
             var unixTime = Helpers.DateTimeToUnixTime(date);
 
-            var formattedRequest = string.Format(
+            var requestUrl = string.Format(
                 SpecificTimeConditionsUrl,
                 this.apiKey,
                 latitude,
@@ -288,19 +276,9 @@
                 excludeList,
                 languageValue);
 
-            var compressionHandler = GetCompressionHandler();
-            using (var client = new HttpClient(compressionHandler))
-            {
-                var response = await client.GetAsync(formattedRequest);
-
-                ThrowExceptionIfResponseError(response);
-
-                this.UpdateApiCallsMade(response);
-
-                return await ParseForecastFromResponse(response);
-            }
+            return await this.GetForecastFromUrl(requestUrl);
         }
-        
+
         /// <summary>
         /// Creates a HttpClientHandler that supports compression for responses.
         /// </summary>
@@ -317,6 +295,7 @@
 
             return compressionHandler;
         }
+
 
         /// <summary>
         /// Throws an exception if the given response didn't have a status code
@@ -355,6 +334,33 @@
                 var result = serializer.ReadObject(responseStream);
 
                 return result as Forecast;
+            }
+        }
+
+        /// <summary>
+        /// Given a formatted URL containing the parameters for a forecast
+        /// request, retrieves, parses, and returns weather data from it.
+        /// </summary>
+        /// <param name="requestUrl">
+        /// The full URL from which the request should be made, including
+        /// the API key and other parameters.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> containing
+        /// weather data.
+        /// </returns>
+        private async Task<Forecast> GetForecastFromUrl(string requestUrl)
+        {
+            var compressionHandler = GetCompressionHandler();
+            using (var client = new HttpClient(compressionHandler))
+            {
+                var response = await client.GetAsync(requestUrl);
+
+                ThrowExceptionIfResponseError(response);
+
+                this.UpdateApiCallsMade(response);
+
+                return await ParseForecastFromResponse(response);
             }
         }
 
