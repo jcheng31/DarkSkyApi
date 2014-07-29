@@ -55,7 +55,7 @@
         {
             this.apiKey = key;
         }
-        
+
         /// <summary>
         /// Gets the number of API calls made today using the given API key.
         /// <para>This property will be null until a request has been made.</para>
@@ -223,6 +223,10 @@
         /// Only conditions for the day are given (i.e. the time is ignored, and taken to be the
         /// current time).
         /// </para>
+        /// <para>
+        /// Allows specification of units of measurement, language used, extended hourly forecasts,
+        /// and exclusion of data blocks.
+        /// </para>
         /// </summary>
         /// <param name="latitude">
         /// The latitude to retrieve data for.
@@ -277,6 +281,40 @@
                 languageValue);
 
             return await this.GetForecastFromUrl(requestUrl);
+        }
+
+        /// <summary>
+        /// Asynchronously retrieves weather data for a particular latitude and longitude, on
+        /// a given day.
+        /// <para>
+        /// Only conditions for the day are given (i.e. the time is ignored, and taken to be the
+        /// current time).
+        /// </para>
+        /// </summary>
+        /// <param name="latitude">
+        /// The latitude to retrieve data for.
+        /// </param>
+        /// <param name="longitude">
+        /// The longitude to retrieve data for.
+        /// </param>
+        /// <param name="date">
+        /// The date to retrieve data for.
+        /// </param>
+        /// <returns>
+        /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
+        /// </returns>>
+        public async Task<Forecast> GetTimeMachineWeatherAsync(double latitude, double longitude, DateTime date)
+        {
+            return
+                await
+                this.GetTimeMachineWeatherAsync(
+                    latitude,
+                    longitude,
+                    date,
+                    Unit.US,
+                    new Extend[0],
+                    new Exclude[0],
+                    Language.English);
         }
 
         /// <summary>

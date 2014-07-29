@@ -1,5 +1,6 @@
 ﻿namespace ForecastPCL.Test
 {
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
 
@@ -115,6 +116,21 @@
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Flags.Units, Is.EqualTo(Unit.CA.ToValue()));
+        }
+
+        /// <summary>
+        /// Checks that retrieving data for a past date works correctly.
+        /// </summary>
+        [Test]
+        public async void CanRetrieveForThePast()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
         }
     }
 }
