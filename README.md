@@ -30,18 +30,18 @@ using ForecastIOPortable;
 
 var client = new ForecastApi("YOUR API KEY HERE");
 
-Forecast result = await client.GetTimeMachineWeatherAsync(37.8267, -122.423, DateTime.Now);
+Forecast result = await client.GetTimeMachineWeatherAsync(37.8267, -122.423, DateTimeOffset.Now);
 
 ...
 ```
 
-The `Helpers` class contains static methods to convert a DateTime to Unix time, and back:
+The `Helpers` class contains extension methods to convert a DateTimeOffset to Unix time, and back:
 
 ```C#
 
-int unixTime = Helpers.DateTimeToUnixTime(DateTime.Now);
+int unixTime = DateTimeOffset.Now.ToUnixTime();
 
-DateTime date = Helpers.UnixTimeToDateTime(unixTime);
+DateTimeOffset date = unixTime.ToDateTimeOffset();
 
 ```
 
