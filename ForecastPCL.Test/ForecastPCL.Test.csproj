@@ -73,7 +73,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Forecast.io PCL\Forecast.io PCL.csproj">
+    <ProjectReference Include="..\ForecastPCL\ForecastPCL.csproj">
       <Project>{fefe3467-8918-4e87-ae78-dc3f0d880162}</Project>
       <Name>Forecast.io PCL</Name>
     </ProjectReference>
