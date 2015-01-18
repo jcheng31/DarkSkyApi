@@ -55,7 +55,7 @@
         /// Gets or sets the met.no license. If this is present, data from api.met.no was used to provide info for this forecast.
         /// </summary>
         [DataMember(Name = "metno-license")]
-        public IList<string> MetnoLicense { get; set; }
+        public string MetnoLicense { get; set; }
 
         /// <summary>
         /// Gets or sets the type of units that are used for the data in this forecast.
