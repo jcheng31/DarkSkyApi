@@ -168,7 +168,37 @@
         /// <summary>
         /// Tetum language.
         /// </summary>
-        Tetum
+        Tetum,
+
+        /// <summary>
+        /// Italian language.
+        /// </summary>
+        Italian,
+
+        /// <summary>
+        /// Polish language.
+        /// </summary>
+        Polish,
+
+        /// <summary>
+        /// Pig Latin language.
+        /// </summary>
+        PigLatin,
+
+        /// <summary>
+        /// Portuguese language.
+        /// </summary>
+        Portuguese,
+
+        /// <summary>
+        /// Bosnian language.
+        /// </summary>
+        Bosnian,
+
+        /// <summary>
+        /// Russian language.
+        /// </summary>
+        Russian
     }
 
     /// <summary>
@@ -299,6 +329,18 @@
                     return "nl";
                 case Language.Tetum:
                     return "tet";
+                case Language.Bosnian:
+                    return "bs";
+                case Language.Polish:
+                    return "pl";
+                case Language.PigLatin:
+                    return "x-pig-latin";
+                case Language.Russian:
+                    return "ru";
+                case Language.Italian:
+                    return "it";
+                case Language.Portuguese:
+                    return "pt";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
