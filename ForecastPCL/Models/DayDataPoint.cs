@@ -62,16 +62,16 @@
         /// <summary>
         /// Gets or sets the time of this data point.
         /// </summary>
-        public DateTime Time
+        public DateTimeOffset Time
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.time);
+                return this.time.ToDateTimeOffset();
             }
 
             set
             {
-                this.time = Helpers.DateTimeToUnixTime(value);
+                this.time = value.ToUnixTime();
             }
         }
 
@@ -91,16 +91,16 @@
         /// Gets or sets the time of the first sunset after the solar noon closest to local noon
         /// on the given day.
         /// </summary>
-        public DateTime SunsetTime
+        public DateTimeOffset SunsetTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.sunsetTime);
+                return this.sunsetTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.sunsetTime = Helpers.DateTimeToUnixTime(value);
+                this.sunsetTime = value.ToUnixTime();
             }
         }
 
@@ -108,16 +108,16 @@
         /// Gets or sets the time of the last sunrise before the solar noon closest to local noon
         /// on the given day.
         /// </summary>
-        public DateTime SunriseTime
+        public DateTimeOffset SunriseTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.sunriseTime);
+                return this.sunriseTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.sunriseTime = Helpers.DateTimeToUnixTime(value);
+                this.sunriseTime = value.ToUnixTime();
             }
         }
 
@@ -144,16 +144,16 @@
         /// <summary>
         /// Gets or sets the time at which the maximum expected precipitation intensity occurs.
         /// </summary>
-        public DateTime MaxPrecipitationIntensityTime
+        public DateTimeOffset MaxPrecipitationIntensityTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.precipIntensityMaxTime);
+                return this.precipIntensityMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.precipIntensityMaxTime = Helpers.DateTimeToUnixTime(value);
+                this.precipIntensityMaxTime = value.ToUnixTime();
             }
         }
 
@@ -172,16 +172,16 @@
         /// <summary>
         /// Gets or sets the time at which the minimum (lowest) temperature occurs.
         /// </summary>
-        public DateTime MinTemperatureTime
+        public DateTimeOffset MinTemperatureTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.temperatureMinTime);
+                return this.temperatureMinTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.temperatureMinTime = Helpers.DateTimeToUnixTime(value);
+                this.temperatureMinTime = value.ToUnixTime();
             }
         }
 
@@ -194,16 +194,16 @@
         /// <summary>
         /// Gets or sets the time at which the maximum (highest) temperature occurs.
         /// </summary>
-        public DateTime MaxTemperatureTime
+        public DateTimeOffset MaxTemperatureTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.temperatureMaxTime);
+                return this.temperatureMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.temperatureMaxTime = Helpers.DateTimeToUnixTime(value);
+                this.temperatureMaxTime = value.ToUnixTime();
             }
         }
 
@@ -216,16 +216,16 @@
         /// <summary>
         /// Gets or sets the time at which the apparent minimum temperature occurs.
         /// </summary>
-        public DateTime ApparentMinTemperatureTime
+        public DateTimeOffset ApparentMinTemperatureTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.apparentTemperatureMinTime);
+                return this.apparentTemperatureMinTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.apparentTemperatureMinTime = Helpers.DateTimeToUnixTime(value);
+                this.apparentTemperatureMinTime = value.ToUnixTime();
             }
         }
 
@@ -238,16 +238,16 @@
         /// <summary>
         /// Gets or sets the time at which the apparent maximum temperature occurs.
         /// </summary>
-        public DateTime ApparentMaxTemperatureTime
+        public DateTimeOffset ApparentMaxTemperatureTime
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.apparentTemperatureMaxTime);
+                return this.apparentTemperatureMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.apparentTemperatureMaxTime = Helpers.DateTimeToUnixTime(value);
+                this.apparentTemperatureMaxTime = value.ToUnixTime();
             }
         }
 

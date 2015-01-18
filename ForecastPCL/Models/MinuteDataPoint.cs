@@ -18,16 +18,16 @@
         /// <summary>
         /// Gets or sets the time of this data point.
         /// </summary>
-        public DateTime Time
+        public DateTimeOffset Time
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.time);
+                return this.time.ToDateTimeOffset();
             }
 
             set
             {
-                this.time = Helpers.DateTimeToUnixTime(value);
+                this.time = value.ToUnixTime();
             }
         }
 

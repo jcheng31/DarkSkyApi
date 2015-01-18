@@ -17,8 +17,8 @@
         [Test]
         public void ConvertZero()
         {
-            var expected = new DateTime(1970, 1, 1, 0, 0, 0);
-            var actual = Helpers.UnixTimeToDateTime(0);
+            var expected = new DateTimeOffset(1970, 1, 1, 0, 0, 0, new TimeSpan());
+            var actual = 0.ToDateTimeOffset();
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -30,8 +30,8 @@
         [Test]
         public void ConvertSpecificDate()
         {
-            var expected = new DateTime(2014, 7, 23, 3, 40, 49);
-            var actual = Helpers.UnixTimeToDateTime(1406086849);
+            var expected = new DateTimeOffset(2014, 7, 23, 3, 40, 49, new TimeSpan());
+            var actual = 1406086849.ToDateTimeOffset();
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -44,7 +44,7 @@
         public void ConvertBackZero()
         {
             var expected = 0;
-            var actual = Helpers.DateTimeToUnixTime(new DateTime(1970, 1, 1, 0, 0, 0));
+            var actual = new DateTimeOffset(1970, 1, 1, 0, 0, 0, new TimeSpan()).ToUnixTime();
 
             Assert.That(actual, Is.EqualTo(expected));
         }
@@ -57,7 +57,7 @@
         public void ConvertBackSpecificDate()
         {
             var expected = 1406086849;
-            var actual = Helpers.DateTimeToUnixTime(new DateTime(2014, 7, 23, 3, 40, 49));
+            var actual = new DateTimeOffset(2014, 7, 23, 3, 40, 49, new TimeSpan()).ToUnixTime();
 
             Assert.That(actual, Is.EqualTo(expected));
         }

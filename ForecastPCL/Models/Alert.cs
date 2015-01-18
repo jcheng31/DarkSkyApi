@@ -22,18 +22,18 @@
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets the date and time at which this alert is no longer valid.
+        /// Gets or sets the moment in time at which this alert is no longer valid.
         /// </summary>
-        public DateTime Expires
+        public DateTimeOffset Expires
         {
             get
             {
-                return Helpers.UnixTimeToDateTime(this.expires);
+                return this.expires.ToDateTimeOffset();
             }
 
             set
             {
-                this.expires = Helpers.DateTimeToUnixTime(value);
+                this.expires = value.ToUnixTime();
             }
         }
 

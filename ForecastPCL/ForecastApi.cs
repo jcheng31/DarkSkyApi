@@ -255,7 +255,7 @@
         public async Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
-            DateTime date,
+            DateTimeOffset date,
             Unit unit,
             IList<Extend> extends,
             IList<Exclude> excludes,
@@ -267,7 +267,7 @@
             var extendList = string.Join(",", extends.Select(x => x.ToValue()));
             var excludeList = string.Join(",", excludes.Select(x => x.ToValue()));
             var languageValue = language.ToValue();
-            var unixTime = Helpers.DateTimeToUnixTime(date);
+            var unixTime = date.ToUnixTime();
 
             var requestUrl = string.Format(
                 SpecificTimeConditionsUrl,
@@ -303,7 +303,7 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(double latitude, double longitude, DateTime date)
+        public async Task<Forecast> GetTimeMachineWeatherAsync(double latitude, double longitude, DateTimeOffset date)
         {
             return
                 await
