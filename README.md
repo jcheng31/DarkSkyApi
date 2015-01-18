@@ -18,7 +18,7 @@ Forecast result = await client.GetWeatherDataAsync(37.8267, -122.423);
 ...
 ```
 
-![](https://i.imgur.com/FKzWQCY.png)
+![](http://i.imgur.com/lLuBO0C.png)
 
 Note that the Forecast.io service doesn't always return all fields for each region. In these cases, some properties may be null or zero.
 
