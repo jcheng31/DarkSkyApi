@@ -5,6 +5,13 @@ An unofficial C# Portable Class Library for the [Forecast.io](http://developer.f
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/):
 `Install-Package ForecastIOPortable`
 
+## New in Version 2.0
+* Replaced `DateTime`s with `DateTimeOffset`s throughout.
+    * Removed the static methods in `Helpers` that converted between `DateTime` and `int`, replacing them with extension methods on `DateTimeOffset` and `int` instead.
+* Removed spaces from the project, solution, and assembly names (thanks to @grendello)
+* Fixed `IList<string>` being used instead of `string` for `MetnoLicense` (thanks to @FourTonMantis)
+* Added support for new languages: Bosnian, Portuguese, Italian, Pig Latin, Russian, and Polish.
+
 ## Quick Start
 ### Current Conditions
 ```C#
