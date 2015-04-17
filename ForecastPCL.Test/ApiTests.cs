@@ -202,7 +202,6 @@ namespace ForecastPCL.Test
         public async void WorksWithCommaDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
-            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
@@ -215,7 +214,6 @@ namespace ForecastPCL.Test
         public async void WorksWithPeriodDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
-            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
