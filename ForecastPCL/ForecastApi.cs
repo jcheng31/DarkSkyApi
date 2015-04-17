@@ -205,6 +205,7 @@
             var languageValue = language.ToValue();
 
             var requestUrl = string.Format(
+                CultureInfo.InvariantCulture,
                 CurrentConditionsUrl,
                 this.apiKey,
                 latitude,
