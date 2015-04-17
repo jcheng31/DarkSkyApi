@@ -271,10 +271,11 @@
             var unixTime = date.ToUnixTime();
 
             var requestUrl = string.Format(
+                CultureInfo.InvariantCulture,
                 SpecificTimeConditionsUrl,
                 this.apiKey,
-                latitude.ToString(CultureInfo.InvariantCulture),
-                longitude.ToString(CultureInfo.InvariantCulture),
+                latitude,
+                longitude,
                 unixTime,
                 unitValue,
                 extendList,
