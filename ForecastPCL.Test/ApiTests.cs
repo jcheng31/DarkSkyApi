@@ -1,4 +1,7 @@
-﻿namespace ForecastPCL.Test
+﻿using System.Globalization;
+using System.Threading;
+
+namespace ForecastPCL.Test
 {
     using System;
     using System.Collections.Generic;
@@ -167,6 +170,58 @@
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Flags.Units, Is.EqualTo(Unit.CA.ToValue()));
+        }
+
+        [Test]
+        public async void TimeMachineWorksWithCommaDecimalSeperator()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
+            var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date, Unit.CA);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        [Test]
+        public async void TimeMachineWorksWithPeriodDecimalSeperator()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+            var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date, Unit.CA);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        [Test]
+        public async void WorksWithCommaDecimalSeperator()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        [Test]
+        public async void WorksWithPeriodDecimalSeperator()
+        {
+            var client = new ForecastApi(this.apiKey);
+            var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
+            var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
         }
     }
 }
