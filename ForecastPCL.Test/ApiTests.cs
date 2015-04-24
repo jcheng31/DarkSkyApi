@@ -22,6 +22,9 @@ namespace ForecastPCL.Test
         private const double AlcatrazLatitude = 37.8267;
         private const double AlcatrazLongitude = -122.423;
 
+        private const double MumbaiLatitude = 18.975;
+        private const double MumbaiLongitude = 72.825833;
+
         /// <summary>
         /// API key to be used for testing. This should be specified in the
         /// test project's app.config file.
@@ -69,6 +72,21 @@ namespace ForecastPCL.Test
             var client = new ForecastApi(this.apiKey);
 
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+        
+        /// <summary>
+        /// Checks that a request can be made for a non-US location.
+        /// Added to test GitHub issue 6.
+        /// </summary>
+        [Test]
+        public async void NonUSDataCanBeRetrieved()
+        {
+            var client = new ForecastApi(this.apiKey);
+
+            var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Currently, Is.Not.Null);
