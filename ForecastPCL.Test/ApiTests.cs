@@ -93,6 +93,33 @@ namespace ForecastPCL.Test
         }
 
         /// <summary>
+        /// Checks that requests can be made with Unit.SI.
+        /// </summary>
+        [Test]
+        public async void UnitSIWorksCorrectly()
+        {
+            var client = new ForecastApi(this.apiKey);
+
+            var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.SI);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Checks that requests can be made with Unit.UK.
+        /// </summary>
+        public async void UnitUKWorksCorrectly()
+        {
+            var client = new ForecastApi(this.apiKey);
+
+            var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.UK);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        /// <summary>
         /// Checks that specifying a block to be excluded from the results
         /// will cause it to be null in the returned forecast.
         /// </summary>
