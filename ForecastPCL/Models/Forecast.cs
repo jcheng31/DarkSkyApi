@@ -32,7 +32,7 @@
         /// Gets or sets the time zone offset, in hours from GMT.
         /// </summary>
         [DataMember(Name = "offset")]
-        public int TimeZoneOffset { get; set; }
+        public double TimeZoneOffset { get; set; }
 
         /// <summary>
         /// Gets or sets the current conditions at the requested location.
