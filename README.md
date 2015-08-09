@@ -1,5 +1,5 @@
 # ForecastPCL
-An unofficial C# Portable Class Library for the [Forecast.io](http://developer.forecast.io) weather service. Compatible with .NET 4.5, Windows 8/8.1, Windows Phone 8.1, Windows Phone Silverlight 8, and Silverlight 5.
+An unofficial C# Portable Class Library for the [Forecast.io](http://developer.forecast.io) weather service. Compatible with .NET 4.5, Windows 8/8.1, Windows Phone 8/8.1, Silverlight 5, and Universal Windows Apps.
 
 ## Installation
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/):
