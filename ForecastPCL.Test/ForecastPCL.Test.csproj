@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="ApiTests.cs" />
     <Compile Include="HelperTests.cs" />
+    <Compile Include="LanguageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
