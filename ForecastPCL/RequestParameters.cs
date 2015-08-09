@@ -342,6 +342,8 @@
         {
             switch (self)
             {
+                case Language.Bosnian:
+                    return "bs";
                 case Language.German:
                     return "de";
                 case Language.English:
@@ -350,22 +352,20 @@
                     return "es";
                 case Language.French:
                     return "fr";
-                case Language.Dutch:
-                    return "nl";
-                case Language.Tetum:
-                    return "tet";
-                case Language.Bosnian:
-                    return "bs";
-                case Language.Polish:
-                    return "pl";
-                case Language.PigLatin:
-                    return "x-pig-latin";
-                case Language.Russian:
-                    return "ru";
                 case Language.Italian:
                     return "it";
+                case Language.Dutch:
+                    return "nl";
+                case Language.Polish:
+                    return "pl";
                 case Language.Portuguese:
                     return "pt";
+                case Language.Russian:
+                    return "ru";
+                case Language.Tetum:
+                    return "tet";
+                case Language.PigLatin:
+                    return "x-pig-latin";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
