@@ -141,6 +141,11 @@
     public enum Language
     {
         /// <summary>
+        /// Arabic language.
+        /// </summary>
+        Arabic,
+
+        /// <summary>
         /// Bosnian language.
         /// </summary>
         Bosnian,
@@ -191,14 +196,34 @@
         Russian,
 
         /// <summary>
+        /// Slovak language.
+        /// </summary>
+        Slovak,
+
+        /// <summary>
+        /// Swedish language.
+        /// </summary>
+        Swedish,
+
+        /// <summary>
         /// Tetum language.
         /// </summary>
         Tetum,
 
         /// <summary>
+        /// Turkish language.
+        /// </summary>
+        Turkish,
+
+        /// <summary>
         /// Pig Latin language.
         /// </summary>
-        PigLatin
+        PigLatin,
+
+        /// <summary>
+        /// Chinese language.
+        /// </summary>
+        Chinese
     }
 
     /// <summary>
