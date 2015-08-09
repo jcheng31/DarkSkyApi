@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ForecastIOPortable</id>
-    <version>2.2.0</version>
+    <version>2.2</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -10,15 +10,9 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A portable class library for the Forecast.io API. Supports .NET 4.5, Silverlight 5, Windows 8/8.1, Windows Phone 8 and 8.1, and Universal Windows Apps.</description>
     <releaseNotes>
-    	* Added support for Universal Windows Apps.
+        * Added support for Universal Windows Apps.
     </releaseNotes>
     <copyright />
     <tags>Forecast.IO Forecast Weather</tags>
-    <dependencies>
-        <dependency id="Microsoft.Bcl" version="1.1.10" />
-        <dependency id="Microsoft.Bcl.Async" version="1.0.168" />
-        <dependency id="Microsoft.Bcl.Build" version="1.0.21" />
-        <dependency id="Microsoft.Net.Http" version="2.2.29" />
-    </dependencies>
   </metadata>
 </package>
