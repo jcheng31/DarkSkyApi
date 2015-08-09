@@ -11,6 +11,7 @@
     <description>A portable class library for the Forecast.io API. Supports .NET 4.5, Silverlight 5, Windows 8/8.1, Windows Phone 8 and 8.1, and Universal Windows Apps.</description>
     <releaseNotes>
         * Added support for Universal Windows Apps.
+        * Added support for Arabic, Slovak, Swedish, Turkish, and Chinese.
     </releaseNotes>
     <copyright />
     <tags>Forecast.IO Forecast Weather</tags>
