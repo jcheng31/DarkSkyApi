@@ -141,6 +141,11 @@
     public enum Language
     {
         /// <summary>
+        /// Bosnian language.
+        /// </summary>
+        Bosnian,
+
+        /// <summary>
         /// German language.
         /// </summary>
         German,
@@ -161,19 +166,14 @@
         French,
 
         /// <summary>
-        /// Dutch language.
-        /// </summary>
-        Dutch,
-
-        /// <summary>
-        /// Tetum language.
-        /// </summary>
-        Tetum,
-
-        /// <summary>
         /// Italian language.
         /// </summary>
         Italian,
+
+        /// <summary>
+        /// Dutch language.
+        /// </summary>
+        Dutch,
 
         /// <summary>
         /// Polish language.
@@ -181,24 +181,24 @@
         Polish,
 
         /// <summary>
-        /// Pig Latin language.
-        /// </summary>
-        PigLatin,
-
-        /// <summary>
         /// Portuguese language.
         /// </summary>
         Portuguese,
 
         /// <summary>
-        /// Bosnian language.
-        /// </summary>
-        Bosnian,
-
-        /// <summary>
         /// Russian language.
         /// </summary>
-        Russian
+        Russian,
+
+        /// <summary>
+        /// Tetum language.
+        /// </summary>
+        Tetum,
+
+        /// <summary>
+        /// Pig Latin language.
+        /// </summary>
+        PigLatin
     }
 
     /// <summary>
