@@ -42,5 +42,11 @@
         /// </summary>
         [DataMember(Name = "precipProbability")]
         public float PrecipitationProbability { get; set; }
-    }
+
+		/// <summary>
+		/// Gets or sets the type of precipitation.
+		/// </summary>
+		[DataMember(Name = "precipType")]
+		public string PrecipitationType { get; set; }
+	}
 }
