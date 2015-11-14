@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ForecastIOPortable</id>
-    <version>2.2</version>
+    <version>2.3</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
@@ -10,8 +10,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A portable class library for the Forecast.io API. Supports .NET 4.5, Silverlight 5, Windows 8/8.1, Windows Phone 8 and 8.1, and Universal Windows Apps.</description>
     <releaseNotes>
-        * Added support for Universal Windows Apps.
-        * Added support for Arabic, Slovak, Swedish, Turkish, and Chinese.
+    	* Add support for Greek, Croatian, Ukrainian, and Traditional Chinese.
+    	* Add previously missing Precipitation Type field.
     </releaseNotes>
     <copyright />
     <tags>Forecast.IO Forecast Weather</tags>
