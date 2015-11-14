@@ -156,6 +156,11 @@
         German,
 
         /// <summary>
+        /// Greek language.
+        /// </summary>
+        Greek,
+
+        /// <summary>
         /// English language.
         /// </summary>
         English,
@@ -169,6 +174,11 @@
         /// French language.
         /// </summary>
         French,
+
+        /// <summary>
+        /// Croatian language.
+        /// </summary>
+        Croatian,
 
         /// <summary>
         /// Italian language.
@@ -216,14 +226,24 @@
         Turkish,
 
         /// <summary>
+        /// Ukrainian language.
+        /// </summary>
+        Ukrainian,
+
+        /// <summary>
         /// Pig Latin language.
         /// </summary>
         PigLatin,
 
         /// <summary>
-        /// Chinese language.
+        /// Simplified Chinese language.
         /// </summary>
-        Chinese
+        Chinese,
+
+        /// <summary>
+        /// Traditional Chinese language.
+        /// </summary>
+        TraditionalChinese
     }
 
     /// <summary>
@@ -348,12 +368,16 @@
                     return "bs";
                 case Language.German:
                     return "de";
+                case Language.Greek:
+                    return "el";
                 case Language.English:
                     return "en";
                 case Language.Spanish:
                     return "es";
                 case Language.French:
                     return "fr";
+                case Language.Croatian:
+                    return "hr";
                 case Language.Italian:
                     return "it";
                 case Language.Dutch:
@@ -372,10 +396,14 @@
                     return "tet";
                 case Language.Turkish:
                     return "tr";
+                case Language.Ukrainian:
+                    return "uk";
                 case Language.PigLatin:
                     return "x-pig-latin";
                 case Language.Chinese:
                     return "zh";
+                case Language.TraditionalChinese:
+                    return "zh-tw";
                 default:
                     throw new ArgumentOutOfRangeException();
             }
