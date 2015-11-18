@@ -5,7 +5,8 @@ An unofficial C# Portable Class Library for the [Forecast.io](http://developer.f
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/):
 `Install-Package ForecastIOPortable`
 
-## New in Version 2.3
+## New in Version 2.3.1
+* Rebuilt the project in Release mode (thanks, [@bklabs](https://github.com/bklabs)!)
 * Added missing Precipitation Type field (thanks, [@lynnroth](https://github.com/lynnroth)!)
 * Additional language support: Greek, Croatian, Ukrainian, and Traditional Chinese.
 
