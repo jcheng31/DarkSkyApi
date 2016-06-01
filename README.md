@@ -1,14 +1,15 @@
 # ForecastPCL
-An unofficial C# Portable Class Library for the [Forecast.io](http://developer.forecast.io) weather service. Compatible with .NET 4.5, Windows 8/8.1, Windows Phone 8/8.1, Silverlight 5, and Universal Windows Apps.
+An unofficial C# Portable Class Library for the [Forecast.io](http://developer.forecast.io) weather service. Compatible with .NET 4.5, Windows 8/8.1, Windows Phone 8/8.1, .NET Core 1.0, Xamarin Android/iOS, and Universal Windows Apps.
 
 ## Installation
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/):
 `Install-Package ForecastIOPortable`
 
-## New in Version 2.3.1
-* Rebuilt the project in Release mode (thanks, [@bklabs](https://github.com/bklabs)!)
-* Added missing Precipitation Type field (thanks, [@lynnroth](https://github.com/lynnroth)!)
-* Additional language support: Greek, Croatian, Ukrainian, and Traditional Chinese.
+## New in Version 2.4.0
+* Fixed .NET Native issues ([see #13](https://github.com/jcheng31/ForecastPCL/issues/13)) by re-creating the solution and project files.
+* Dropped support for Silverlight.
+* Added support for .NET Core 1.0, Xamarin Android/iOS.
+* Updated Microsoft.Bcl and Microsoft.Net.Http dependencies.
 
 
 ## Quick Start
