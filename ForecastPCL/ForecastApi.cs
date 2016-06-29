@@ -54,7 +54,7 @@
         /// </param>
         public ForecastApi(string key)
         {
-            this.apiKey = key;
+            apiKey = key;
         }
 
         /// <summary>
@@ -75,9 +75,9 @@
         /// <returns>
         /// A <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude)
+        public Task<Forecast> GetWeatherDataAsync(double latitude, double longitude)
         {
-            return await this.GetWeatherDataAsync(latitude, longitude, Unit.US, new Extend[0], new Exclude[0], Language.English);
+            return GetWeatherDataAsync(latitude, longitude, Unit.US, new Extend[0], new Exclude[0], Language.English);
         }
 
         /// <summary>
@@ -96,9 +96,9 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetWeatherDataAsync(double latitude, double longitude, Unit units)
+        public Task<Forecast> GetWeatherDataAsync(double latitude, double longitude, Unit units)
         {
-            return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], Language.English);
+            return GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], Language.English);
         }
 
         /// <summary>
@@ -120,13 +120,13 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetWeatherDataAsync(
+        public Task<Forecast> GetWeatherDataAsync(
             double latitude,
             double longitude,
             Unit units,
             IList<Exclude> excludes)
         {
-            return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], excludes, Language.English);
+            return GetWeatherDataAsync(latitude, longitude, units, new Extend[0], excludes, Language.English);
         }
 
         /// <summary>
@@ -151,13 +151,13 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetWeatherDataAsync(
+        public Task<Forecast> GetWeatherDataAsync(
             double latitude,
             double longitude,
             Unit units,
             Language language)
         {
-            return await this.GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], language);
+            return GetWeatherDataAsync(latitude, longitude, units, new Extend[0], new Exclude[0], language);
         }
 
         /// <summary>
@@ -189,7 +189,7 @@
         /// <exception cref="HttpRequestException">
         /// Thrown when the service returned anything other than a 200 (Status OK) code.
         /// </exception>
-        public async Task<Forecast> GetWeatherDataAsync(
+        public Task<Forecast> GetWeatherDataAsync(
             double latitude,
             double longitude,
             Unit unit,
@@ -197,7 +197,7 @@
             IList<Exclude> excludes,
             Language language)
         {
-            this.ThrowExceptionIfApiKeyInvalid();
+            ThrowExceptionIfApiKeyInvalid();
 
             var unitValue = unit.ToValue();
             var extendList = string.Join(",", extends.Select(x => x.ToValue()));
@@ -207,7 +207,7 @@
             var requestUrl = string.Format(
                 CultureInfo.InvariantCulture,
                 CurrentConditionsUrl,
-                this.apiKey,
+                apiKey,
                 latitude,
                 longitude,
                 unitValue,
@@ -215,7 +215,7 @@
                 excludeList,
                 languageValue);
 
-            return await this.GetForecastFromUrl(requestUrl);
+            return GetForecastFromUrlAsync(requestUrl);
         }
 
         /// <summary>
@@ -254,7 +254,7 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(
+        public Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
             DateTimeOffset date,
@@ -263,7 +263,7 @@
             IList<Exclude> excludes,
             Language language)
         {
-            this.ThrowExceptionIfApiKeyInvalid();
+            ThrowExceptionIfApiKeyInvalid();
 
             var unitValue = unit.ToValue();
             var extendList = string.Join(",", extends.Select(x => x.ToValue()));
@@ -274,7 +274,7 @@
             var requestUrl = string.Format(
                 CultureInfo.InvariantCulture,
                 SpecificTimeConditionsUrl,
-                this.apiKey,
+                apiKey,
                 latitude,
                 longitude,
                 unixTime,
@@ -283,7 +283,7 @@
                 excludeList,
                 languageValue);
 
-            return await this.GetForecastFromUrl(requestUrl);
+            return GetForecastFromUrlAsync(requestUrl);
         }
 
         /// <summary>
@@ -306,11 +306,10 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(double latitude, double longitude, DateTimeOffset date)
+        public Task<Forecast> GetTimeMachineWeatherAsync(double latitude, double longitude, DateTimeOffset date)
         {
             return
-                await
-                this.GetTimeMachineWeatherAsync(
+                GetTimeMachineWeatherAsync(
                     latitude,
                     longitude,
                     date,
@@ -346,15 +345,14 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(
+        public Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
             DateTime date,
             Unit unit)
         {
             return
-                await
-                this.GetTimeMachineWeatherAsync(
+                GetTimeMachineWeatherAsync(
                     latitude,
                     longitude,
                     date,
@@ -393,7 +391,7 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(
+        public Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
             DateTime date,
@@ -401,8 +399,7 @@
             IList<Exclude> excludes)
         {
             return
-                await
-                this.GetTimeMachineWeatherAsync(
+                GetTimeMachineWeatherAsync(
                     latitude,
                     longitude,
                     date,
@@ -441,7 +438,7 @@
         /// <returns>
         /// A <see cref="Task"/> for a <see cref="Forecast"/> with the requested data, or null if the data was corrupted.
         /// </returns>
-        public async Task<Forecast> GetTimeMachineWeatherAsync(
+        public Task<Forecast> GetTimeMachineWeatherAsync(
             double latitude,
             double longitude,
             DateTime date,
@@ -449,8 +446,7 @@
             Language language)
         {
             return
-                await
-                this.GetTimeMachineWeatherAsync(
+                GetTimeMachineWeatherAsync(
                     latitude,
                     longitude,
                     date,
@@ -529,7 +525,7 @@
         /// A <see cref="Task"/> for a <see cref="Forecast"/> containing
         /// weather data.
         /// </returns>
-        private async Task<Forecast> GetForecastFromUrl(string requestUrl)
+        private async Task<Forecast> GetForecastFromUrlAsync(string requestUrl)
         {
             var compressionHandler = GetCompressionHandler();
             using (var client = new HttpClient(compressionHandler))
@@ -538,7 +534,7 @@
 
                 ThrowExceptionIfResponseError(response);
 
-                this.UpdateApiCallsMade(response);
+                UpdateApiCallsMade(response);
 
                 return await ParseForecastFromResponse(response);
             }
@@ -556,7 +552,7 @@
             IEnumerable<string> apiCallHeaderValues;
             if (response.Headers.TryGetValues("X-Forecast-API-Calls", out apiCallHeaderValues))
             {
-                this.ApiCallsMade = int.Parse(apiCallHeaderValues.First());
+                ApiCallsMade = int.Parse(apiCallHeaderValues.First());
             }
         }
 
@@ -569,7 +565,7 @@
         /// </exception>
         private void ThrowExceptionIfApiKeyInvalid()
         {
-            if (string.IsNullOrEmpty(this.apiKey))
+            if (string.IsNullOrEmpty(apiKey))
             {
                 throw new InvalidOperationException("No API key was given.");
             }
