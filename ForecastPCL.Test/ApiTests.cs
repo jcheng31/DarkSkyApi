@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ForecastPCL.Test
 {
@@ -67,7 +68,7 @@ namespace ForecastPCL.Test
         /// <para>An API key can be specified in the project's app.config file.</para>
         /// </summary>
         [Test]
-        public async void ValidKeyRetrievesData()
+        public async Task ValidKeyRetrievesData()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -82,7 +83,7 @@ namespace ForecastPCL.Test
         /// Added to test GitHub issue 6.
         /// </summary>
         [Test]
-        public async void NonUSDataCanBeRetrieved()
+        public async Task NonUSDataCanBeRetrieved()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -96,7 +97,7 @@ namespace ForecastPCL.Test
         /// Checks that requests can be made with Unit.SI.
         /// </summary>
         [Test]
-        public async void UnitSIWorksCorrectly()
+        public async Task UnitSIWorksCorrectly()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -109,7 +110,7 @@ namespace ForecastPCL.Test
         /// <summary>
         /// Checks that requests can be made with Unit.UK.
         /// </summary>
-        public async void UnitUKWorksCorrectly()
+        public async Task UnitUKWorksCorrectly()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -124,7 +125,7 @@ namespace ForecastPCL.Test
         /// will cause it to be null in the returned forecast.
         /// </summary>
         [Test]
-        public async void ExclusionWorksCorrectly()
+        public async Task ExclusionWorksCorrectly()
         {
             var client = new ForecastApi(this.apiKey);
             var exclusionList = new List<Exclude> { Exclude.Minutely };
@@ -141,7 +142,7 @@ namespace ForecastPCL.Test
         /// them to left out.
         /// </summary>
         [Test]
-        public async void MultipleExclusionWorksCorrectly()
+        public async Task MultipleExclusionWorksCorrectly()
         {
             var client = new ForecastApi(this.apiKey);
             var exclusionList = new List<Exclude> { Exclude.Minutely, Exclude.Hourly, Exclude.Daily };
@@ -159,7 +160,7 @@ namespace ForecastPCL.Test
         /// Checks that the service returns data using the specified units of measurement.
         /// </summary>
         [Test]
-        public async void UnitsCanBeSpecified()
+        public async Task UnitsCanBeSpecified()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -173,7 +174,7 @@ namespace ForecastPCL.Test
         /// Checks that retrieving data for a past date works correctly.
         /// </summary>
         [Test]
-        public async void CanRetrieveForThePast()
+        public async Task CanRetrieveForThePast()
         {
             var client = new ForecastApi(this.apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
@@ -189,7 +190,7 @@ namespace ForecastPCL.Test
         /// will cause it to be null in the returned forecast.
         /// </summary>
         [Test]
-        public async void TimeMachineExclusionWorksCorrectly()
+        public async Task TimeMachineExclusionWorksCorrectly()
         {
             var client = new ForecastApi(this.apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
@@ -206,7 +207,7 @@ namespace ForecastPCL.Test
         /// Checks that the service returns data using the specified units of measurement.
         /// </summary>
         [Test]
-        public async void TimeMachineUnitsCanBeSpecified()
+        public async Task TimeMachineUnitsCanBeSpecified()
         {
             var client = new ForecastApi(this.apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
@@ -218,7 +219,7 @@ namespace ForecastPCL.Test
         }
 
         [Test]
-        public async void TimeMachineWorksWithCommaDecimalSeperator()
+        public async Task TimeMachineWorksWithCommaDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
@@ -231,7 +232,7 @@ namespace ForecastPCL.Test
         }
 
         [Test]
-        public async void TimeMachineWorksWithPeriodDecimalSeperator()
+        public async Task TimeMachineWorksWithPeriodDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
@@ -244,7 +245,7 @@ namespace ForecastPCL.Test
         }
 
         [Test]
-        public async void WorksWithCommaDecimalSeperator()
+        public async Task WorksWithCommaDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
 
@@ -256,7 +257,7 @@ namespace ForecastPCL.Test
         }
 
         [Test]
-        public async void WorksWithPeriodDecimalSeperator()
+        public async Task WorksWithPeriodDecimalSeperator()
         {
             var client = new ForecastApi(this.apiKey);
 

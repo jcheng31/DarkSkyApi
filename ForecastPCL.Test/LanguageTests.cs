@@ -1,4 +1,6 @@
-﻿namespace ForecastPCL.Test
+﻿using System.Threading.Tasks;
+
+namespace ForecastPCL.Test
 {
     using System;
     using System.Configuration;
@@ -43,7 +45,7 @@
         }
 
         [Test]
-        public async void UnicodeLanguageIsSupported()
+        public async Task UnicodeLanguageIsSupported()
         {
             var client = new ForecastApi(this.apiKey);
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.Auto, Language.Chinese);
