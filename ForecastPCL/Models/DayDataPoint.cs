@@ -66,12 +66,12 @@
         {
             get
             {
-                return this.time.ToDateTimeOffset();
+                return time.ToDateTimeOffset();
             }
 
             set
             {
-                this.time = value.ToUnixTime();
+                time = value.ToUnixTime();
             }
         }
 
@@ -95,12 +95,12 @@
         {
             get
             {
-                return this.sunsetTime.ToDateTimeOffset();
+                return sunsetTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.sunsetTime = value.ToUnixTime();
+                sunsetTime = value.ToUnixTime();
             }
         }
 
@@ -112,12 +112,12 @@
         {
             get
             {
-                return this.sunriseTime.ToDateTimeOffset();
+                return sunriseTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.sunriseTime = value.ToUnixTime();
+                sunriseTime = value.ToUnixTime();
             }
         }
 
@@ -154,12 +154,12 @@
         {
             get
             {
-                return this.precipIntensityMaxTime.ToDateTimeOffset();
+                return precipIntensityMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.precipIntensityMaxTime = value.ToUnixTime();
+                precipIntensityMaxTime = value.ToUnixTime();
             }
         }
 
@@ -182,12 +182,12 @@
         {
             get
             {
-                return this.temperatureMinTime.ToDateTimeOffset();
+                return temperatureMinTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.temperatureMinTime = value.ToUnixTime();
+                temperatureMinTime = value.ToUnixTime();
             }
         }
 
@@ -204,12 +204,12 @@
         {
             get
             {
-                return this.temperatureMaxTime.ToDateTimeOffset();
+                return temperatureMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.temperatureMaxTime = value.ToUnixTime();
+                temperatureMaxTime = value.ToUnixTime();
             }
         }
 
@@ -226,12 +226,12 @@
         {
             get
             {
-                return this.apparentTemperatureMinTime.ToDateTimeOffset();
+                return apparentTemperatureMinTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.apparentTemperatureMinTime = value.ToUnixTime();
+                apparentTemperatureMinTime = value.ToUnixTime();
             }
         }
 
@@ -248,12 +248,12 @@
         {
             get
             {
-                return this.apparentTemperatureMaxTime.ToDateTimeOffset();
+                return apparentTemperatureMaxTime.ToDateTimeOffset();
             }
 
             set
             {
-                this.apparentTemperatureMaxTime = value.ToUnixTime();
+                apparentTemperatureMaxTime = value.ToUnixTime();
             }
         }
 

@@ -1,4 +1,6 @@
-﻿namespace ForecastPCL.Test
+﻿using System.Threading.Tasks;
+
+namespace ForecastPCL.Test
 {
     using System;
     using System.Configuration;
@@ -15,9 +17,6 @@
         private const double AlcatrazLatitude = 37.8267;
         private const double AlcatrazLongitude = -122.423;
 
-        private const double MumbaiLatitude = 18.975;
-        private const double MumbaiLongitude = 72.825833;
-
         /// <summary>
         /// API key to be used for testing. This should be specified in the
         /// test project's app.config file.
@@ -30,7 +29,7 @@
         [TestFixtureSetUp]
         public void SetUp()
         {
-            this.apiKey = ConfigurationManager.AppSettings["ApiKey"];
+            apiKey = ConfigurationManager.AppSettings["ApiKey"];
         }
 
         [Test]
@@ -43,9 +42,9 @@
         }
 
         [Test]
-        public async void UnicodeLanguageIsSupported()
+        public async Task UnicodeLanguageIsSupported()
         {
-            var client = new ForecastApi(this.apiKey);
+            var client = new ForecastApi(apiKey);
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.Auto, Language.Chinese);
             Assert.That(result, Is.Not.Null);
         }

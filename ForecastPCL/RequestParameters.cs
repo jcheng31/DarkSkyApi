@@ -137,112 +137,39 @@
 
     /// <summary>
     /// Languages that the service can return text summaries in.
+    /// These are listed here in the order that they appear in the
+    /// Forecast.io API documentation.
     /// </summary>
     public enum Language
     {
-        /// <summary>
-        /// Arabic language.
-        /// </summary>
         Arabic,
-
-        /// <summary>
-        /// Bosnian language.
-        /// </summary>
+        Belarusian,
         Bosnian,
-
-        /// <summary>
-        /// German language.
-        /// </summary>
+        Czech,
         German,
-
-        /// <summary>
-        /// Greek language.
-        /// </summary>
         Greek,
-
-        /// <summary>
-        /// English language.
-        /// </summary>
         English,
-
-        /// <summary>
-        /// Spanish language.
-        /// </summary>
         Spanish,
-
-        /// <summary>
-        /// French language.
-        /// </summary>
         French,
-
-        /// <summary>
-        /// Croatian language.
-        /// </summary>
         Croatian,
-
-        /// <summary>
-        /// Italian language.
-        /// </summary>
+        Hungarian,
+        Indonesian,
         Italian,
-
-        /// <summary>
-        /// Dutch language.
-        /// </summary>
+        Icelandic,
+        Cornish,
+        NorwegianBokmal,
         Dutch,
-
-        /// <summary>
-        /// Polish language.
-        /// </summary>
         Polish,
-
-        /// <summary>
-        /// Portuguese language.
-        /// </summary>
         Portuguese,
-
-        /// <summary>
-        /// Russian language.
-        /// </summary>
         Russian,
-
-        /// <summary>
-        /// Slovak language.
-        /// </summary>
         Slovak,
-
-        /// <summary>
-        /// Swedish language.
-        /// </summary>
+        Serbian,
         Swedish,
-
-        /// <summary>
-        /// Tetum language.
-        /// </summary>
         Tetum,
-
-        /// <summary>
-        /// Turkish language.
-        /// </summary>
         Turkish,
-
-        /// <summary>
-        /// Ukrainian language.
-        /// </summary>
         Ukrainian,
-
-        /// <summary>
-        /// Pig Latin language.
-        /// </summary>
         PigLatin,
-
-        /// <summary>
-        /// Simplified Chinese language.
-        /// </summary>
         Chinese,
-
-        /// <summary>
-        /// Traditional Chinese language.
-        /// </summary>
         TraditionalChinese
     }
 
@@ -364,8 +291,12 @@
             {
                 case Language.Arabic:
                     return "ar";
+                case Language.Belarusian:
+                    return "be";
                 case Language.Bosnian:
                     return "bs";
+                case Language.Czech:
+                    return "cs";
                 case Language.German:
                     return "de";
                 case Language.Greek:
@@ -378,8 +309,18 @@
                     return "fr";
                 case Language.Croatian:
                     return "hr";
+                case Language.Hungarian:
+                    return "hu";
+                case Language.Indonesian:
+                    return "id";
                 case Language.Italian:
                     return "it";
+                case Language.Icelandic:
+                    return "is";
+                case Language.Cornish:
+                    return "kw";
+                case Language.NorwegianBokmal:
+                    return "nb";
                 case Language.Dutch:
                     return "nl";
                 case Language.Polish:
@@ -390,6 +331,8 @@
                     return "ru";
                 case Language.Slovak:
                     return "sk";
+                case Language.Serbian:
+                    return "sr";
                 case Language.Swedish:
                     return "sv";
                 case Language.Tetum:
