@@ -137,112 +137,31 @@
 
     /// <summary>
     /// Languages that the service can return text summaries in.
+    /// These are listed here in the order that they appear in the
+    /// Forecast.io API documentation.
     /// </summary>
     public enum Language
     {
-        /// <summary>
-        /// Arabic language.
-        /// </summary>
         Arabic,
-
-        /// <summary>
-        /// Bosnian language.
-        /// </summary>
         Bosnian,
-
-        /// <summary>
-        /// German language.
-        /// </summary>
         German,
-
-        /// <summary>
-        /// Greek language.
-        /// </summary>
         Greek,
-
-        /// <summary>
-        /// English language.
-        /// </summary>
         English,
-
-        /// <summary>
-        /// Spanish language.
-        /// </summary>
         Spanish,
-
-        /// <summary>
-        /// French language.
-        /// </summary>
         French,
-
-        /// <summary>
-        /// Croatian language.
-        /// </summary>
         Croatian,
-
-        /// <summary>
-        /// Italian language.
-        /// </summary>
         Italian,
-
-        /// <summary>
-        /// Dutch language.
-        /// </summary>
         Dutch,
-
-        /// <summary>
-        /// Polish language.
-        /// </summary>
         Polish,
-
-        /// <summary>
-        /// Portuguese language.
-        /// </summary>
         Portuguese,
-
-        /// <summary>
-        /// Russian language.
-        /// </summary>
         Russian,
-
-        /// <summary>
-        /// Slovak language.
-        /// </summary>
         Slovak,
-
-        /// <summary>
-        /// Swedish language.
-        /// </summary>
         Swedish,
-
-        /// <summary>
-        /// Tetum language.
-        /// </summary>
         Tetum,
-
-        /// <summary>
-        /// Turkish language.
-        /// </summary>
         Turkish,
-
-        /// <summary>
-        /// Ukrainian language.
-        /// </summary>
         Ukrainian,
-
-        /// <summary>
-        /// Pig Latin language.
-        /// </summary>
         PigLatin,
-
-        /// <summary>
-        /// Simplified Chinese language.
-        /// </summary>
         Chinese,
-
-        /// <summary>
-        /// Traditional Chinese language.
-        /// </summary>
         TraditionalChinese
     }
 
