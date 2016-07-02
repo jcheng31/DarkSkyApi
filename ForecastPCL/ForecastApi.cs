@@ -8,7 +8,7 @@
     using System.Net.Http;
     using System.Runtime.Serialization.Json;
     using System.Threading.Tasks;
-    using ForecastIOPortable.Models;
+    using Models;
 
     /// <summary>
     /// The Forecast.IO service. Returns weather data for given locations,

@@ -29,7 +29,7 @@ namespace ForecastPCL.Test
         [TestFixtureSetUp]
         public void SetUp()
         {
-            this.apiKey = ConfigurationManager.AppSettings["ApiKey"];
+            apiKey = ConfigurationManager.AppSettings["ApiKey"];
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task UnicodeLanguageIsSupported()
         {
-            var client = new ForecastApi(this.apiKey);
+            var client = new ForecastApi(apiKey);
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.Auto, Language.Chinese);
             Assert.That(result, Is.Not.Null);
         }

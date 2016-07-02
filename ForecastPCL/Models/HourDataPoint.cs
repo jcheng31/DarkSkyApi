@@ -22,12 +22,12 @@
         {
             get
             {
-                return this.time.ToDateTimeOffset();
+                return time.ToDateTimeOffset();
             }
 
             set
             {
-                this.time = value.ToUnixTime();
+                time = value.ToUnixTime();
             }
         }
 

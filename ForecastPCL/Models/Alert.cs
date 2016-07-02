@@ -28,12 +28,12 @@
         {
             get
             {
-                return this.expires.ToDateTimeOffset();
+                return expires.ToDateTimeOffset();
             }
 
             set
             {
-                this.expires = value.ToUnixTime();
+                expires = value.ToUnixTime();
             }
         }
 
