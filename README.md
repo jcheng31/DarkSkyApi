@@ -6,18 +6,9 @@ An unofficial C# Portable Class Library for the [Forecast.io](http://developer.f
 
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/): `Install-Package ForecastIOPortable`
 
-## New in Version 2.5.0
+## New in Version 2.6.0 (11 July 2016)
 
-- Added support for languages added to Forecast.io since September 2015:
-  - Belarusian
-  - Czech
-  - Hungarian
-  - Indonesian
-  - Icelandic
-  - Cornish
-  - Norwegian Bokmal
-  - Serbian
-- **[Internal]** Added a missing `Async` to the name of an async method, pruned redundant `this`s. Thanks, [@IEvangelist](https://github.com/IEvangelist)!
+- Precipitation Type was missing from CurrentDataPoint. Oops. It's there now.
 
 ## Quick Start
 
@@ -34,7 +25,7 @@ Forecast result = await client.GetWeatherDataAsync(37.8267, -122.423);
 ...
 ```
 
-![](http://i.imgur.com/lLuBO0C.png)
+![](https://i.imgur.com/mHhRgKr.png)
 
 Note that the Forecast.io service doesn't always return all fields for each region. In these cases, some properties may be null or zero.
 
