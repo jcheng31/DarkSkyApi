@@ -7,6 +7,7 @@ An unofficial C# Portable Class Library for the [Forecast.io](http://developer.f
 [NuGet](https://www.nuget.org/packages/ForecastIOPortable/): `Install-Package ForecastIOPortable`
 
 ## New in Version 2.6.0 (11 July 2016)
+[Full Changelog](CHANGELOG.md)
 
 - Precipitation Type was missing from CurrentDataPoint. Oops. It's there now.
 
