@@ -68,6 +68,12 @@
         public float PrecipitationProbability { get; set; }
 
         /// <summary>
+        /// Gets or sets the type of precipitation (rain, sleet, or snow).
+        /// </summary>
+        [DataMember(Name = "precipType")]
+        public string PrecipitationType { get; set; }
+
+        /// <summary>
         /// Gets or sets the temperature.
         /// </summary>
         [DataMember(Name = "temperature")]

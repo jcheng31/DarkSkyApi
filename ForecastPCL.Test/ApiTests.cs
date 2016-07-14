@@ -35,7 +35,7 @@ namespace ForecastPCL.Test
         /// <summary>
         /// Sets up all tests by retrieving the API key from app.config.
         /// </summary>
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
             apiKey = ConfigurationManager.AppSettings["ApiKey"];
