@@ -40,7 +40,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ForecastApi.cs" />
+    <Compile Include="DarkSkyService.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />

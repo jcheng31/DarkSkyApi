@@ -48,7 +48,7 @@ namespace ForecastPCL.Test
         [Test]
         public void NullKeyThrowsException()
         {
-            var client = new ForecastApi(null);
+            var client = new DarkSkyService(null);
             Assert.That(async () => await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude), Throws.InvalidOperationException);
         }
 
@@ -59,7 +59,7 @@ namespace ForecastPCL.Test
         [Test]
         public void EmptyKeyThrowsException()
         {
-            var client = new ForecastApi(string.Empty);
+            var client = new DarkSkyService(string.Empty);
             Assert.That(async () => await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude), Throws.InvalidOperationException);
         }
 
@@ -70,7 +70,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task ValidKeyRetrievesData()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
 
@@ -85,7 +85,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task NonUSDataCanBeRetrieved()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude);
 
@@ -99,7 +99,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task UnitSIWorksCorrectly()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.SI);
 
@@ -112,7 +112,7 @@ namespace ForecastPCL.Test
         /// </summary>
         public async Task UnitUKWorksCorrectly()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.UK);
 
@@ -127,7 +127,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task ExclusionWorksCorrectly()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var exclusionList = new List<Exclude> { Exclude.Minutely };
 
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.US, exclusionList);
@@ -144,7 +144,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task MultipleExclusionWorksCorrectly()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var exclusionList = new List<Exclude> { Exclude.Minutely, Exclude.Hourly, Exclude.Daily };
 
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.US, exclusionList);
@@ -162,7 +162,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task UnitsCanBeSpecified()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.CA);
 
@@ -176,7 +176,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task CanRetrieveForThePast()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date);
@@ -192,7 +192,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task TimeMachineExclusionWorksCorrectly()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
             var exclusionList = new List<Exclude> { Exclude.Hourly };
 
@@ -209,7 +209,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task TimeMachineUnitsCanBeSpecified()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             var result = await client.GetTimeMachineWeatherAsync(AlcatrazLatitude, AlcatrazLongitude, date, Unit.CA);
@@ -221,7 +221,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task TimeMachineWorksWithCommaDecimalSeperator()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
@@ -234,7 +234,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task TimeMachineWorksWithPeriodDecimalSeperator()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var date = DateTime.Now.Subtract(new TimeSpan(2, 0, 0, 0));
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
@@ -247,7 +247,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task WorksWithCommaDecimalSeperator()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("fr-FR");
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);
@@ -259,7 +259,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task WorksWithPeriodDecimalSeperator()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
 
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("en-US");
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude);

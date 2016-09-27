@@ -12,11 +12,10 @@ using DarkSkyApi.Models;
 namespace DarkSkyApi
 {
     /// <summary>
-    /// The Forecast.IO service. Returns weather data for given locations,
+    /// The Dark Sky service. Returns weather data for given locations,
     /// and provides API usage information.
     /// </summary>
-    [Obsolete("ForecastIOPortable has been deprecated; please replace it with DarkSkyApi from NuGet.")]
-    public class ForecastApi
+    public class DarkSkyService
     {
         /// <summary>
         /// The API endpoint to retrieve current weather conditions.
@@ -49,12 +48,12 @@ namespace DarkSkyApi
         private readonly string apiKey;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ForecastApi"/> class.
+        /// Initializes a new instance of the <see cref="DarkSkyService"/> class.
         /// </summary>
         /// <param name="key">
         /// The API key to use.
         /// </param>
-        public ForecastApi(string key)
+        public DarkSkyService(string key)
         {
             apiKey = key;
         }

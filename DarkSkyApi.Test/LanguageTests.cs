@@ -43,7 +43,7 @@
         [Test]
         public async Task UnicodeLanguageIsSupported()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.Auto, Language.Chinese);
             Assert.That(result, Is.Not.Null);
         }
