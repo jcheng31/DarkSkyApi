@@ -2,6 +2,7 @@
 <package >
   <metadata>
     <id>ForecastIOPortable</id>
+    <title>ForecastIOPortable (ForecastPCL)</title>
     <version>2.6.0</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
@@ -13,6 +14,6 @@
 * Added the missing PrecipitationType field to CurrentDataPoint.
     </releaseNotes>
     <copyright />
-    <tags>Forecast.IO Forecast Weather</tags>
+    <tags>Forecast.IO Forecast Weather Portable PCL</tags>
   </metadata>
 </package>
