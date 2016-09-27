@@ -1,11 +1,10 @@
-﻿using System.Threading.Tasks;
-
-namespace ForecastPCL.Test
+﻿namespace ForecastPCL.Test
 {
     using System;
     using System.Configuration;
+    using System.Threading.Tasks;
 
-    using ForecastIOPortable;
+    using DarkSkyApi;
 
     using NUnit.Framework;
 

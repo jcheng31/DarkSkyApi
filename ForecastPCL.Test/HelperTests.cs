@@ -1,7 +1,7 @@
 ﻿namespace ForecastPCL.Test
 {
     using System;
-    using ForecastIOPortable;
+    using DarkSkyApi;
     using NUnit.Framework;
 
     /// <summary>

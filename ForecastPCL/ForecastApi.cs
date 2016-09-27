@@ -1,15 +1,16 @@
-﻿namespace ForecastIOPortable
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
-    using System.Runtime.Serialization.Json;
-    using System.Threading.Tasks;
-    using Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
+using System.Threading.Tasks;
 
+using DarkSkyApi.Models;
+
+namespace DarkSkyApi
+{
     /// <summary>
     /// The Forecast.IO service. Returns weather data for given locations,
     /// and provides API usage information.

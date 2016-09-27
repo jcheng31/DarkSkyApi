@@ -1,7 +1,7 @@
-﻿namespace ForecastIOPortable
-{
-    using System;
+﻿using System;
 
+namespace DarkSkyApi
+{
     /// <summary>
     /// Units of measurement supported by the Forecast service.
     /// </summary>

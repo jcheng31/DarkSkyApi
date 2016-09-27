@@ -1,6 +1,7 @@
-﻿namespace ForecastIOPortable
+﻿using System;
+
+namespace DarkSkyApi
 {
-    using System;
 
     /// <summary>
     /// Various helper methods.

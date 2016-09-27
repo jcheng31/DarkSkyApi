@@ -8,7 +8,7 @@ namespace ForecastPCL.Test
     using System.Collections.Generic;
     using System.Configuration;
 
-    using ForecastIOPortable;
+    using DarkSkyApi;
 
     using NUnit.Framework;
 

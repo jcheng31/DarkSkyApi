@@ -1,8 +1,8 @@
-﻿namespace ForecastIOPortable.Models
-{
-    using System;
-    using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
+namespace DarkSkyApi.Models
+{
     /// <summary>
     /// An severe weather alert issued by a weather service for a particular location.
     /// </summary>

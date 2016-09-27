@@ -1,8 +1,8 @@
-﻿namespace ForecastIOPortable.Models
-{
-    using System;
-    using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
+namespace DarkSkyApi.Models
+{
     /// <summary>
     /// The weather conditions for a particular hour.
     /// </summary>
