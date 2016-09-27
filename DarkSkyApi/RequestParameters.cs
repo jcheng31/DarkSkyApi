@@ -143,6 +143,7 @@ namespace DarkSkyApi
     public enum Language
     {
         Arabic,
+        Azerbaijani,
         Belarusian,
         Bosnian,
         Czech,
@@ -291,6 +292,8 @@ namespace DarkSkyApi
             {
                 case Language.Arabic:
                     return "ar";
+                case Language.Azerbaijani:
+                    return "az";
                 case Language.Belarusian:
                     return "be";
                 case Language.Bosnian:
