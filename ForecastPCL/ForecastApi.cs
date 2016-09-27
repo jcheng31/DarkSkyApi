@@ -14,6 +14,7 @@
     /// The Forecast.IO service. Returns weather data for given locations,
     /// and provides API usage information.
     /// </summary>
+    [Obsolete("ForecastIOPortable has been deprecated; please replace it with DarkSkyApi from NuGet.")]
     public class ForecastApi
     {
         /// <summary>
@@ -26,7 +27,7 @@
         /// {5} - Any blocks to be excluded from the results.
         /// {6} - The language to be used in text summaries.
         /// </summary>
-        private const string CurrentConditionsUrl = "https://api.forecast.io/forecast/{0}/{1},{2}?units={3}&extend={4}&exclude={5}&lang={6}";
+        private const string CurrentConditionsUrl = "https://api.darksky.net/forecast/{0}/{1},{2}?units={3}&extend={4}&exclude={5}&lang={6}";
 
         /// <summary>
         /// The API endpoint to retrieve weather conditions at a particular date and time.
@@ -39,7 +40,7 @@
         /// {6} - Any blocks to be excluded from the results.
         /// {7} - The language to be used in text summaries. 
         /// </summary>
-        private const string SpecificTimeConditionsUrl = "https://api.forecast.io/forecast/{0}/{1},{2},{3}?units={4}&extend={5}&exclude={6}&lang={7}";
+        private const string SpecificTimeConditionsUrl = "https://api.darksky.net/forecast/{0}/{1},{2},{3}?units={4}&extend={5}&exclude={6}&lang={7}";
 
         /// <summary>
         /// The API key to use in all requests.
