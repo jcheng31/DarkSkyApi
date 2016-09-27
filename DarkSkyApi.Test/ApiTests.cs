@@ -1,17 +1,13 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace ForecastPCL.Test
+namespace DarkSkyApi.Test
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-
-    using DarkSkyApi;
-
-    using NUnit.Framework;
-
     /// <summary>
     /// Tests for the main ForecastApi class.
     /// </summary>

@@ -1,13 +1,10 @@
-﻿namespace ForecastPCL.Test
+﻿using System;
+using System.Configuration;
+using System.Threading.Tasks;
+using NUnit.Framework;
+
+namespace DarkSkyApi.Test
 {
-    using System;
-    using System.Configuration;
-    using System.Threading.Tasks;
-
-    using DarkSkyApi;
-
-    using NUnit.Framework;
-
     [TestFixture]
     public class LanguageTests
     {
