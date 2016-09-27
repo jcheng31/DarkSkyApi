@@ -78,7 +78,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ForecastPCL\DarkSkyApi.csproj">
+    <ProjectReference Include="..\DarkSkyApi\DarkSkyApi.csproj">
       <Project>{989883c6-fc6b-4019-a21d-c6aa0e819927}</Project>
       <Name>DarkSkyApi</Name>
     </ProjectReference>
