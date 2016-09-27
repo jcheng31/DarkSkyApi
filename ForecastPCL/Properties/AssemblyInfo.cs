@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ForecastPCL")]
-[assembly: AssemblyDescription("An unofficial PCL for the forecast.io weather API.")]
+[assembly: AssemblyTitle("DarkSkyApi")]
+[assembly: AssemblyDescription("An unofficial PCL for the Dark Sky weather API.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Jerome Cheng")]
-[assembly: AssemblyProduct("ForecastPCL")]
+[assembly: AssemblyProduct("DarkSkyApi")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
