@@ -3,15 +3,17 @@
   <metadata>
     <id>ForecastIOPortable</id>
     <title>ForecastIOPortable (ForecastPCL)</title>
-    <version>2.6.0</version>
+    <version>2.9.9</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/jcheng31/ForecastPCL</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A portable class library for the Forecast.io API.</description>
+    <description>(Deprecated - please use DarkSkyApi instead.) A portable class library for the Forecast.io API.</description>
     <releaseNotes>
-* Added the missing PrecipitationType field to CurrentDataPoint.
+This library has been replaced by DarkSkyApi - please move over to that instead! It's almost a drop-in replacement.
+* Update API URL to use darksky.net instead of forecast.io.
+* Add deprecation notice.
     </releaseNotes>
     <copyright />
     <tags>Forecast.IO Forecast Weather Portable PCL</tags>
