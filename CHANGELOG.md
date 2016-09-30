@@ -1,3 +1,36 @@
+## New in Version 3.0.0 (28 September 2016)
+ForecastPCL is now DarkSkyApi! Almost everything's the same, but the new name better matches the Dark Sky rebranding.
+
+- **Migration Details**
+
+  - Renamed ForecastApi to DarkSkyService.
+  - Moved everything in the ForecastIOPortable namespace to the DarkSkyApi namespace.
+  - Moved everything in the ForecastIOPortable.Models namespace to the DarkSkyApi.Models namespace.
+  - Moved everything in the ForecastIOPortable.Helpers namespace to the DarkSkyApi.Helpers namespace.
+
+- **New Languages**
+
+  - Added support for Azerbaijani.
+
+### Migrating from ForecastPCL
+
+1. Uninstall the `ForecastIOPortable` NuGet package.
+2. Install the `DarkSkyApi` package from NuGet.
+3. Replace all references to `ForecastIOPortable` namespaces with the corresponding `DarkSkyApi` ones:
+
+| ForecastPCL Namespace | DarkSkyApi Namespace |
+| --- | --- |
+| ForecastIOPortable | DarkSkyApi |
+| ForecastIOPortable.Models  | DarkSkyApi.Models |
+| ForecastIOPortable.Helpers | DarkSkyApi.Helpers |
+
+# ForecastPCL
+ForecastPCL has been deprecated, with DarkSkyApi being the replacement NuGet package. Please see above for detailed migration instructions.
+
+## New in Version 2.9.9 (28 September 2016)
+- Updated to use the Dark Sky API URL.
+- Added a deprecation notice to encourage migrating over to the new NuGet package.
+
 ## New in Version 2.6.0 (11 July 2016)
 - Precipitation Type was missing from CurrentDataPoint. Oops. It's there now.
 
