@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForecastPCL", "ForecastPCL\ForecastPCL.csproj", "{989883C6-FC6B-4019-A21D-C6AA0E819927}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSkyApi", "DarkSkyApi\DarkSkyApi.csproj", "{989883C6-FC6B-4019-A21D-C6AA0E819927}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForecastPCL.Test", "ForecastPCL.Test\ForecastPCL.Test.csproj", "{8C9EC2DD-8438-4C7F-A489-F988698A1809}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSkyApi.Test", "DarkSkyApi.Test\DarkSkyApi.Test.csproj", "{8C9EC2DD-8438-4C7F-A489-F988698A1809}"
 	ProjectSection(ProjectDependencies) = postProject
 		{989883C6-FC6B-4019-A21D-C6AA0E819927} = {989883C6-FC6B-4019-A21D-C6AA0E819927}
 	EndProjectSection

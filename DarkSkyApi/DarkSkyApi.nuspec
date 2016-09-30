@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>DarkSkyApi</id>
+    <title>DarkSkyApi</title>
+    <version>3.0.0</version>
+    <authors>Jerome Cheng</authors>
+    <owners>Jerome Cheng</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/jcheng31/DarkSkyApi</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A portable class library for the Dark Sky weather API.</description>
+    <releaseNotes>
+* Add support for Azerbaijani.
+    </releaseNotes>
+    <copyright />
+    <tags>DarkSky Dark Sky Forecast.IO Forecast Weather Portable PCL</tags>
+  </metadata>
+</package>

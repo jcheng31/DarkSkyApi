@@ -1,14 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Configuration;
+using System.Threading.Tasks;
+using NUnit.Framework;
 
-namespace ForecastPCL.Test
+namespace DarkSkyApi.Test
 {
-    using System;
-    using System.Configuration;
-
-    using ForecastIOPortable;
-
-    using NUnit.Framework;
-
     [TestFixture]
     public class LanguageTests
     {
@@ -26,7 +22,7 @@ namespace ForecastPCL.Test
         /// <summary>
         /// Sets up all tests by retrieving the API key from app.config.
         /// </summary>
-        [TestFixtureSetUp]
+        [OneTimeSetUp]
         public void SetUp()
         {
             apiKey = ConfigurationManager.AppSettings["ApiKey"];
@@ -44,7 +40,7 @@ namespace ForecastPCL.Test
         [Test]
         public async Task UnicodeLanguageIsSupported()
         {
-            var client = new ForecastApi(apiKey);
+            var client = new DarkSkyService(apiKey);
             var result = await client.GetWeatherDataAsync(AlcatrazLatitude, AlcatrazLongitude, Unit.Auto, Language.Chinese);
             Assert.That(result, Is.Not.Null);
         }

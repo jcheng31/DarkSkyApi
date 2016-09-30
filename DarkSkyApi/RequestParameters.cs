@@ -1,7 +1,7 @@
-﻿namespace ForecastIOPortable
-{
-    using System;
+﻿using System;
 
+namespace DarkSkyApi
+{
     /// <summary>
     /// Units of measurement supported by the Forecast service.
     /// </summary>
@@ -143,6 +143,7 @@
     public enum Language
     {
         Arabic,
+        Azerbaijani,
         Belarusian,
         Bosnian,
         Czech,
@@ -291,6 +292,8 @@
             {
                 case Language.Arabic:
                     return "ar";
+                case Language.Azerbaijani:
+                    return "az";
                 case Language.Belarusian:
                     return "be";
                 case Language.Bosnian:

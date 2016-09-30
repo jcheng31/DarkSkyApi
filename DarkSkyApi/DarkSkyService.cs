@@ -1,21 +1,21 @@
-﻿namespace ForecastIOPortable
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Globalization;
-    using System.Linq;
-    using System.Net;
-    using System.Net.Http;
-    using System.Runtime.Serialization.Json;
-    using System.Threading.Tasks;
-    using Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
+using System.Threading.Tasks;
 
+using DarkSkyApi.Models;
+
+namespace DarkSkyApi
+{
     /// <summary>
-    /// The Forecast.IO service. Returns weather data for given locations,
+    /// The Dark Sky service. Returns weather data for given locations,
     /// and provides API usage information.
     /// </summary>
-    [Obsolete("ForecastIOPortable has been deprecated; please replace it with DarkSkyApi from NuGet.")]
-    public class ForecastApi
+    public class DarkSkyService
     {
         /// <summary>
         /// The API endpoint to retrieve current weather conditions.
@@ -48,12 +48,12 @@
         private readonly string apiKey;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ForecastApi"/> class.
+        /// Initializes a new instance of the <see cref="DarkSkyService"/> class.
         /// </summary>
         /// <param name="key">
         /// The API key to use.
         /// </param>
-        public ForecastApi(string key)
+        public DarkSkyService(string key)
         {
             apiKey = key;
         }

@@ -1,13 +1,13 @@
-﻿namespace ForecastIOPortable.Models
-{
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
+namespace DarkSkyApi.Models
+{
     /// <summary>
-    /// An hour-by-hour forecast.
+    /// A day-by-day forecast.
     /// </summary>
     [DataContract]
-    public class HourlyForecast
+    public class DailyForecast
     {
         /// <summary>
         /// Gets or sets a human-readable summary of the forecast.
@@ -22,9 +22,9 @@
         public string Icon { get; set; }
 
         /// <summary>
-        /// Gets or sets the individual hours that make up this forecast.
+        /// Gets or sets the individual days that make up this forecast.
         /// </summary>
         [DataMember(Name = "data")]
-        public IList<HourDataPoint> Hours { get; set; } 
+        public IList<DayDataPoint> Days { get; set; }
     }
 }

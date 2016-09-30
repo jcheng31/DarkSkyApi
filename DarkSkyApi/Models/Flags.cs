@@ -1,8 +1,8 @@
-﻿namespace ForecastIOPortable.Models
-{
-    using System.Collections.Generic;
-    using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
+namespace DarkSkyApi.Models
+{
     /// <summary>
     /// Metadata associated with a forecast.
     /// </summary>

@@ -8,8 +8,8 @@
     <ProjectGuid>{989883C6-FC6B-4019-A21D-C6AA0E819927}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ForecastIOPortable</RootNamespace>
-    <AssemblyName>ForecastPCL</AssemblyName>
+    <RootNamespace>DarkSkyApi</RootNamespace>
+    <AssemblyName>DarkSkyApi</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -40,7 +40,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ForecastApi.cs" />
+    <Compile Include="DarkSkyService.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Models\Alert.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />

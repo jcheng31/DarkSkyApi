@@ -1,9 +1,8 @@
-﻿namespace ForecastPCL.Test
-{
-    using System;
-    using ForecastIOPortable;
-    using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
+namespace DarkSkyApi.Test
+{
     /// <summary>
     /// Unit tests for the Helpers class.
     /// </summary>
