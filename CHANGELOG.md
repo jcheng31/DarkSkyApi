@@ -1,4 +1,4 @@
-## New in Version 3.0.0 (28 September 2016)
+## New in Version 3.0.0 (30 September 2016)
 ForecastPCL is now DarkSkyApi! Almost everything's the same, but the new name better matches the Dark Sky rebranding.
 
 - **Migration Details**
@@ -27,7 +27,7 @@ ForecastPCL is now DarkSkyApi! Almost everything's the same, but the new name be
 # ForecastPCL
 ForecastPCL has been deprecated, with DarkSkyApi being the replacement NuGet package. Please see above for detailed migration instructions.
 
-## New in Version 2.9.9 (28 September 2016)
+## New in Version 2.9.9 (30 September 2016)
 - Updated to use the Dark Sky API URL.
 - Added a deprecation notice to encourage migrating over to the new NuGet package.
 

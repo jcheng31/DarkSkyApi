@@ -6,7 +6,7 @@ An unofficial C# Portable Class Library for the [Dark Sky](https://darksky.net/d
 
 [NuGet](https://www.nuget.org/packages/DarkSkyApi/): `Install-Package DarkSkyApi`
 
-## New in Version 3.0.0 (28 September 2016)
+## New in Version 3.0.0 (30 September 2016)
 
 [Full Changelog](CHANGELOG.md)
 
