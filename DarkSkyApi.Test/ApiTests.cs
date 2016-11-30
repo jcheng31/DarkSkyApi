@@ -106,11 +106,27 @@ namespace DarkSkyApi.Test
         /// <summary>
         /// Checks that requests can be made with Unit.UK.
         /// </summary>
+        [Test]
         public async Task UnitUKWorksCorrectly()
         {
             var client = new DarkSkyService(apiKey);
 
             var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.UK);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Currently, Is.Not.Null);
+        }
+
+        /// <summary>
+        /// Checks that requests can be made with Unit.UK2.
+        /// Added to test GitHub issue 18.
+        /// </summary>
+        [Test]
+        public async Task UnitUK2WorksCorrectly()
+        {
+            var client = new DarkSkyService(apiKey);
+
+            var result = await client.GetWeatherDataAsync(MumbaiLatitude, MumbaiLongitude, Unit.UK2);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Currently, Is.Not.Null);

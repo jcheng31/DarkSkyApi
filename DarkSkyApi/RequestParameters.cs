@@ -78,6 +78,25 @@ namespace DarkSkyApi
         UK,
 
         /// <summary>
+        /// UK units of measurement. The same as SI, except that 
+        /// nearestStormDistance and visibility are in miles and windSpeed 
+        /// is in miles per hour
+        /// <para>
+        /// Summaries containing temperature or snow accumulation units have
+        /// their values in degrees Celsius or centimeters (respectively).
+        /// Nearest storm distance: Miles
+        /// Precipitation intensity: Millimeters per hour
+        /// Precipitation accumulation: Centimeters
+        /// Temperature: Celsius
+        /// Dew Point: Celsius
+        /// Wind Speed: Miles per hour
+        /// Pressure: Hectopascals (equivalent to millibars)
+        /// Visibility: Miles
+        /// </para>
+        /// </summary>
+        UK2,
+
+        /// <summary>
         /// Automatically choose units of measurement based on geographic location.
         /// </summary>
         Auto
@@ -205,6 +224,8 @@ namespace DarkSkyApi
                     return "ca";
                 case Unit.UK:
                     return "uk";
+                case Unit.UK2:
+                    return "uk2";
                 case Unit.Auto:
                     return "auto";
                 default:
