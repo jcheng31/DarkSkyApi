@@ -3,7 +3,7 @@
   <metadata>
     <id>DarkSkyApi</id>
     <title>DarkSkyApi</title>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,7 +11,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A portable class library for the Dark Sky weather API.</description>
     <releaseNotes>
-* Add support for Azerbaijani.
+* Fixed an issue causing deadlocks when the library is called from a UI context.
+* Added support for UK2 units.
     </releaseNotes>
     <copyright />
     <tags>DarkSky Dark Sky Forecast.IO Forecast Weather Portable PCL</tags>

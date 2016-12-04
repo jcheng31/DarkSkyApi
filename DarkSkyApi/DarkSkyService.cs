@@ -505,7 +505,7 @@ namespace DarkSkyApi
         /// </returns>
         private static async Task<Forecast> ParseForecastFromResponse(HttpResponseMessage response)
         {
-            using (var responseStream = await response.Content.ReadAsStreamAsync())
+            using (var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
             {
                 var serializer = new DataContractJsonSerializer(typeof(Forecast));
                 var result = serializer.ReadObject(responseStream);
@@ -531,13 +531,13 @@ namespace DarkSkyApi
             var compressionHandler = GetCompressionHandler();
             using (var client = new HttpClient(compressionHandler))
             {
-                var response = await client.GetAsync(requestUrl);
+                var response = await client.GetAsync(requestUrl).ConfigureAwait(false);
 
                 ThrowExceptionIfResponseError(response);
 
                 UpdateApiCallsMade(response);
 
-                return await ParseForecastFromResponse(response);
+                return await ParseForecastFromResponse(response).ConfigureAwait(false);
             }
         }
 
