@@ -6,34 +6,13 @@ An unofficial C# Portable Class Library for the [Dark Sky](https://darksky.net/d
 
 [NuGet](https://www.nuget.org/packages/DarkSkyApi/): `Install-Package DarkSkyApi`
 
-## New in Version 3.0.0 (30 September 2016)
+## New in Version 3.1.0 (04 December 2016)
 
 [Full Changelog](CHANGELOG.md)
 
-ForecastPCL is now DarkSkyApi! Almost everything's the same, but the new name better matches the Dark Sky rebranding.
-
-- **Migration Details**
-
-  - Renamed ForecastApi to DarkSkyService.
-  - Moved everything in the ForecastIOPortable namespace to the DarkSkyApi namespace.
-  - Moved everything in the ForecastIOPortable.Models namespace to the DarkSkyApi.Models namespace.
-  - Moved everything in the ForecastIOPortable.Helpers namespace to the DarkSkyApi.Helpers namespace.
-
-- **New Languages**
-
-  - Added support for Azerbaijani.
-
-### Migrating from ForecastPCL
-
-1. Uninstall the `ForecastIOPortable` NuGet package.
-2. Install the `DarkSkyApi` package from NuGet.
-3. Replace all references to `ForecastIOPortable` namespaces with the corresponding `DarkSkyApi` ones:
-
-| ForecastPCL Namespace | DarkSkyApi Namespace |
-| --- | --- |
-| ForecastIOPortable | DarkSkyApi |
-| ForecastIOPortable.Models  | DarkSkyApi.Models |
-| ForecastIOPortable.Helpers | DarkSkyApi.Helpers |
+Thanks to [@CodeAnimal](https://www.github.com/CodeAnimal) for these fixes:
+* Fixed an issue which resulted in deadlocks when the library was called from a UI context.
+* Added support for the UK2 unit type.
 
 ## Quick Start
 
