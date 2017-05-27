@@ -1,3 +1,8 @@
+## New in Version 3.2.0 (27 May 2017)
+* Target .NET Standard 1.1.
+  - This should support the same platforms as before, with the addition of Mono 4.6.
+* Add support for Bulgarian, Catalan, and Estonian.
+
 ## New in Version 3.1.0 (04 December 2016)
 Thanks to [@CodeAnimal](https://www.github.com/CodeAnimal) for these fixes:
 * Fixed an issue which resulted in deadlocks when the library was called from a UI context.

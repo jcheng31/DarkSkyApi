@@ -1,18 +1,18 @@
 # DarkSkyApi [![NuGet](https://img.shields.io/nuget/v/DarkSkyApi.svg?maxAge=2592000)]()
 
-An unofficial C# Portable Class Library for the [Dark Sky](https://darksky.net/dev) weather service. Compatible with .NET 4.5, Windows 8/8.1, Windows Phone 8/8.1, .NET Core 1.0, Xamarin Android/iOS, and Universal Windows Apps.
+An unofficial C# library for the [Dark Sky](https://darksky.net/dev) weather service. Targets .NET Standard 1.1 - compatible with .NET 4.5, Mono 4.6, Windows 8/8.1, Windows Phone 8/8.1, .NET Core 1.0, Xamarin Android/iOS, and Universal Windows Apps.
 
 ## Installation
 
 [NuGet](https://www.nuget.org/packages/DarkSkyApi/): `Install-Package DarkSkyApi`
 
-## New in Version 3.1.0 (04 December 2016)
+## New in Version 3.2.0 (27 May 2017)
 
 [Full Changelog](CHANGELOG.md)
 
-Thanks to [@CodeAnimal](https://www.github.com/CodeAnimal) for these fixes:
-* Fixed an issue which resulted in deadlocks when the library was called from a UI context.
-* Added support for the UK2 unit type.
+* Target .NET Standard 1.1.
+  - This should support the same platforms as before, with the addition of Mono 4.6.
+* Add support for Bulgarian, Catalan, and Estonian.
 
 ## Quick Start
 
