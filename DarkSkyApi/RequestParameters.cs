@@ -164,12 +164,15 @@ namespace DarkSkyApi
         Arabic,
         Azerbaijani,
         Belarusian,
+        Bulgarian,
         Bosnian,
+        Catalan,
         Czech,
         German,
         Greek,
         English,
         Spanish,
+        Estonian,
         French,
         Croatian,
         Hungarian,
@@ -317,8 +320,12 @@ namespace DarkSkyApi
                     return "az";
                 case Language.Belarusian:
                     return "be";
+                case Language.Bulgarian:
+                    return "bg";
                 case Language.Bosnian:
                     return "bs";
+                case Language.Catalan:
+                    return "ca";
                 case Language.Czech:
                     return "cs";
                 case Language.German:
@@ -329,6 +336,8 @@ namespace DarkSkyApi
                     return "en";
                 case Language.Spanish:
                     return "es";
+                case Language.Estonian:
+                    return "et";
                 case Language.French:
                     return "fr";
                 case Language.Croatian:
