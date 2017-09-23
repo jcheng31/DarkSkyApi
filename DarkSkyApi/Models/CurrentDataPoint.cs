@@ -132,5 +132,11 @@ namespace DarkSkyApi.Models
         /// </summary>
         [DataMember(Name = "ozone")]
         public float Ozone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the UV index.
+        /// </summary>
+        [DataMember(Name = "uvIndex")]
+        public float UVIndex { get; set; }
     }
 }
