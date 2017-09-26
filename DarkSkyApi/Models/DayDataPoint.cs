@@ -304,5 +304,17 @@ namespace DarkSkyApi.Models
         /// </summary>
         [DataMember(Name = "ozone")]
         public float Ozone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the UV index.
+        /// </summary>
+        [DataMember(Name = "uvIndex")]
+        public float UVIndex { get; set; }
+
+        /// <summary>
+        /// Gets or sets the UNIX time when the maximum uvIndex occurs during a given day.
+        /// </summary>
+        [DataMember(Name = "uvIndexTime")]
+        public double UVIndexTime { get; set; }
     }
 }
