@@ -3,7 +3,7 @@
   <metadata>
     <id>DarkSkyApi</id>
     <title>DarkSkyApi</title>
-    <version>3.2.0</version>
+    <version>3.2.1</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,8 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A portable class library for the Dark Sky weather API.</description>
     <releaseNotes>
-* Target .NET Standard 1.1.
-* Add support for Bulgarian, Catalan, and Estonian.
+* Add UV Index and UV Index Time properties.
     </releaseNotes>
     <copyright />
     <tags>DarkSky Dark Sky Forecast.IO Forecast Weather Portable PCL</tags>
