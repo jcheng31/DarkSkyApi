@@ -6,13 +6,11 @@ An unofficial C# library for the [Dark Sky](https://darksky.net/dev) weather ser
 
 [NuGet](https://www.nuget.org/packages/DarkSkyApi/): `Install-Package DarkSkyApi`
 
-## New in Version 3.2.0 (27 May 2017)
+## New in Version 3.2.1 (26 October 2017)
 
 [Full Changelog](CHANGELOG.md)
 
-* Target .NET Standard 1.1.
-  - This should support the same platforms as before, with the addition of Mono 4.6.
-* Add support for Bulgarian, Catalan, and Estonian.
+* Add support for UV Index and UV Index Time properties. Thanks, [@rootasjey](https://github.com/rootasjey)!
 
 ## Quick Start
 
