@@ -1,3 +1,7 @@
+## New in Version 3.2.1 (26 October 2017)
+
+* Add support for UV Index and UV Index Time properties. Thanks, [@rootasjey](https://github.com/rootasjey)!
+
 ## New in Version 3.2.0 (27 May 2017)
 * Target .NET Standard 1.1.
   - This should support the same platforms as before, with the addition of Mono 4.6.
