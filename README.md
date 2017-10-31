@@ -201,39 +201,39 @@ public class DailyForecast {
 class DayDataPoint {
     ... // similar DayDataPoint values
 
-    // Gets or sets a value representing the fractional part of the lunation number
+    // A value representing the fractional part of the lunation number
     // of the given day. Can be thought of as the "percentage complete" of the current
     // lunar month.
     public float MoonPhase;
 
-    // Gets or sets the maximum expected precipitation intensity.
+    // The maximum expected precipitation intensity.
     public float MaxPrecipitationIntensity;
 
-    // Gets or sets the time at which the maximum expected precipitation intensity occurs.
+    // The time at which the maximum expected precipitation intensity occurs.
     public DateTimeOffset MaxPrecipitationIntensityTime;
 
-    // Gets or sets the minimum (lowest) temperature for the day.
+    // The minimum (lowest) temperature for the day.
     public float MinTemperature;
 
-    // Gets or sets the time at which the minimum (lowest) temperature occurs.
+    // The time at which the minimum (lowest) temperature occurs.
     public DateTimeOffset MinTemperatureTime;
 
-    // Gets or sets the maximum (highest) temperature for the day.
+    // The maximum (highest) temperature for the day.
     public float MaxTemperature;
 
-    // Gets or sets the time at which the maximum (highest) temperature occurs.
+    // The time at which the maximum (highest) temperature occurs.
     public DateTimeOffset MaxTemperatureTime;
 
-    // Gets or sets the apparent ("feels like") minimum temperature.
+    // The apparent ("feels like") minimum temperature.
     public float ApparentMinTemperature;
 
-    // Gets or sets the time at which the apparent minimum temperature occurs.
+    // The time at which the apparent minimum temperature occurs.
     public DateTimeOffset ApparentMinTemperatureTime;
 
-    // Gets or sets the apparent ("feels like") maximum temperature.
+    // The apparent ("feels like") maximum temperature.
     public float ApparentMaxTemperature;
 
-    /// Gets or sets the time at which the apparent maximum temperature occurs.
+    // The time at which the apparent maximum temperature occurs.
     public DateTimeOffset ApparentMaxTemperatureTime;
 }
 ```
