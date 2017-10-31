@@ -40,6 +40,7 @@ Compatible with:
 * [Data Results](#data-results)
   * [Currently Forecast](#currently-forecast)
   * [Daily Forecast](#daily-forecast)
+  * [Hourly Forecast](#hourly-forecast)
   * [Minutely Forecast](#minutely-forecast)
 * [API Usage Information](#api-usage-information)
 
@@ -155,7 +156,7 @@ Basically, the data result is structured like this:
 
 #### Currently Forecast
 
-`Forecast.Currently` contains a `CurrentDataPoint` object.
+`Forecast.Currently` has a `CurrentDataPoint` object.
 This object has properties like `temperature`, `cloudCover` and a lot more:
 
 ```csharp
@@ -184,39 +185,103 @@ public class CurrentDataPoint {
 
 #### Daily Forecast
 
-Contains a `DailyForecast` object which has the following values:
+`Forecast.Daily` has a `DailyForecast` object which has the following values:
 
 ```csharp
 public class DailyForecast {
-    public string Summary { get; set; } // summary of the forecast
-    public string Icon { get; set; } // used to select an icon to display
-    public IList<DayDataPoint> Days { get; set; } // individual days that make up this forecast
+    public string Summary; // summary of the forecast
+    public string Icon; // used to select an icon to display
+    public IList<DayDataPoint> Days; // individual days that make up this forecast
+}
+```
+
+`DayDataPoint` has similar properties with `CurrentDataPoint` in addition:
+
+```csharp
+class DayDataPoint {
+    ... // similar DayDataPoint values
+
+    // Gets or sets a value representing the fractional part of the lunation number
+    // of the given day. Can be thought of as the "percentage complete" of the current
+    // lunar month.
+    public float MoonPhase;
+
+    // Gets or sets the maximum expected precipitation intensity.
+    public float MaxPrecipitationIntensity;
+
+    // Gets or sets the time at which the maximum expected precipitation intensity occurs.
+    public DateTimeOffset MaxPrecipitationIntensityTime;
+
+    // Gets or sets the minimum (lowest) temperature for the day.
+    public float MinTemperature;
+
+    // Gets or sets the time at which the minimum (lowest) temperature occurs.
+    public DateTimeOffset MinTemperatureTime;
+
+    // Gets or sets the maximum (highest) temperature for the day.
+    public float MaxTemperature;
+
+    // Gets or sets the time at which the maximum (highest) temperature occurs.
+    public DateTimeOffset MaxTemperatureTime;
+
+    // Gets or sets the apparent ("feels like") minimum temperature.
+    public float ApparentMinTemperature;
+
+    // Gets or sets the time at which the apparent minimum temperature occurs.
+    public DateTimeOffset ApparentMinTemperatureTime;
+
+    // Gets or sets the apparent ("feels like") maximum temperature.
+    public float ApparentMaxTemperature;
+
+    /// Gets or sets the time at which the apparent maximum temperature occurs.
+    public DateTimeOffset ApparentMaxTemperatureTime;
 }
 ```
 
 #### Hourly Forecast
 
-Contains a `HourlyForecast` object which has the following values:
+`Forecast.Hourly` has a `HourlyForecast` object which has the following values:
 
 ```csharp
 public class HourlyForecast {
-    public string Summary { get; set; } // summary of the forecast
-    public string Icon { get; set; } // used to select an icon to display
-    public IList<HourDataPoint> Hours { get; set; } // individual hours that make up this forecast
+    public string Summary; // summary of the forecast
+    public string Icon; // used to select an icon to display
+    public IList<HourDataPoint> Hours; // individual hours that make up this forecast
 }
 ```
+
+`HourDataPoint` has similar properties with `CurrentDataPoint`.
 
 #### Minutely Forecast
 
-Contains a `MinutelyForecast` object which has the following values:
+`Forecast.Minutely` has a `MinutelyForecast` object which has the following values:
 
 ```csharp
 public class MinutelyForecast {
-    public string Summary { get; set; } // summary of the forecast
-    public string Icon { get; set; } // used to select an icon to display
-    public IList<MinuteDataPoint> Minutes { get; set; } // individual hours that make up this forecast
+    public string Summary; // summary of the forecast
+    public string Icon; // used to select an icon to display
+    public IList<MinuteDataPoint> Minutes; // individual hours that make up this forecast
 }
 ```
+
+`MinuteDataPoint` has the following properties:
+
+```csharp
+class MinuteDataPoint {
+    // Unix time at which this data point applies.
+    public DateTimeOffset Time;
+
+    // Average expected precipitation assuming any precipitation occurs.
+    public float PrecipitationIntensity;
+    
+    // Probability of precipitation (from 0 to 1).
+    public float PrecipitationProbability;
+
+    // Type of precipitation
+    public string PrecipitationType;
+}
+```
+
 
 ⚠️ **NOTE:** The Dark Sky service doesn't always return all fields for each region. 
 In these cases, some properties may be `null` or `0`.
