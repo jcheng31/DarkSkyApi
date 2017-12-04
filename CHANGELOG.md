@@ -1,3 +1,26 @@
+## New in Version 3.3 (04 December 2017)
+
+* **Breaking Change**: `UVIndexTime` is now a `DateTimeOffset` like other time fields; previously it was a `double`.
+* Added support for new fields (thanks, [@MattLugar!](https://github.com/MattLugar))
+    - `Alert`
+      - `Severity` indicates the severity of the alert.
+      - `Time` indicates the time at which the alert was issued.
+      - `Regions` indicates the regions covered by the alert.
+    - `DayDataPoint`
+      - `HighTemperature`/`HighTemperatureTime` indicates the daytime high temperature, and when it occurs.
+      - `LowTemperature`/`LowTemperatureTime` indicates the overnight low temperature, and when it occurs.
+      - `WindGust`/`WindGustTime` indicates the wind gust speed, and when it occurs.
+      - `PrecipitationAccumulation` indicates the amount of snowfall accumulation expected.
+    - `HourDataPoint`
+      - `WindGust` indicates the wind gust speed.
+      - `PrecipitationAccumulation` indicates the amount of snowfall accumulation expected.
+* Mark deprecated fields as deprecated.
+  - `DayDataPoint`
+    - `ApparentMaxTemperature`/`ApparentMaxTemperatureTime`
+    - `ApparentMinTemperature`/`ApparentMinTemperatureTime`
+    - `MaxTemperature`/`MaxTemperatureTime`
+    - `MinTemperature`/`MinTemperatureTime`
+
 ## New in Version 3.2.1 (26 October 2017)
 
 * Add support for UV Index and UV Index Time properties. Thanks, [@rootasjey](https://github.com/rootasjey)!
