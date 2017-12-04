@@ -3,15 +3,34 @@
   <metadata>
     <id>DarkSkyApi</id>
     <title>DarkSkyApi</title>
-    <version>3.2.1</version>
+    <version>3.3</version>
     <authors>Jerome Cheng</authors>
     <owners>Jerome Cheng</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
     <projectUrl>https://github.com/jcheng31/DarkSkyApi</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>A portable class library for the Dark Sky weather API.</description>
+    <description>A .NET Standard library for the Dark Sky weather API.</description>
     <releaseNotes>
-* Add UV Index and UV Index Time properties.
+* **Breaking Change**: `UVIndexTime` is now a `DateTimeOffset` like other time fields; previously it was a `double`.
+* Added support for new fields.
+    - `Alert`
+      - `Severity` indicates the severity of the alert.
+      - `Time` indicates the time at which the alert was issued.
+      - `Regions` indicates the regions covered by the alert.
+    - `DayDataPoint`
+      - `HighTemperature`/`HighTemperatureTime` indicates the daytime high temperature, and when it occurs.
+      - `LowTemperature`/`LowTemperatureTime` indicates the overnight low temperature, and when it occurs.
+      - `WindGust`/`WindGustTime` indicates the wind gust speed, and when it occurs.
+      - `PrecipitationAccumulation` indicates the amount of snowfall accumulation expected.
+    - `HourDataPoint`
+      - `WindGust` indicates the wind gust speed.
+      - `PrecipitationAccumulation` indicates the amount of snowfall accumulation expected.
+* Mark deprecated fields as deprecated.
+  - `DayDataPoint`
+    - `ApparentMaxTemperature`/`ApparentMaxTemperatureTime`
+    - `ApparentMinTemperature`/`ApparentMinTemperatureTime`
+    - `MaxTemperature`/`MaxTemperatureTime`
+    - `MinTemperature`/`MinTemperatureTime`
     </releaseNotes>
     <copyright />
     <tags>DarkSky Dark Sky Forecast.IO Forecast Weather Portable PCL</tags>
