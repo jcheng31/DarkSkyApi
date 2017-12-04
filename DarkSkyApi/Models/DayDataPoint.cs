@@ -38,26 +38,66 @@ namespace DarkSkyApi.Models
         /// <summary>
         /// Unix time at which the maximum temperature occurs.
         /// </summary>
+        [Obsolete]
         [DataMember]
         private int temperatureMaxTime;
 
         /// <summary>
         /// Unix time at which the lowest temperature occurs.
         /// </summary>
+        [Obsolete]
         [DataMember]
         private int temperatureMinTime;
 
         /// <summary>
         /// Unix time at which the apparent minimum temperature occurs.
         /// </summary>
+        [Obsolete]
         [DataMember]
         private int apparentTemperatureMinTime;
 
         /// <summary>
         /// Unix time at which the apparent maximum temperature occurs.
         /// </summary>
+        [Obsolete]
         [DataMember]
         private int apparentTemperatureMaxTime;
+
+        /// <summary>
+        /// Unix time at which the overnight low apparent temperature occurs.
+        /// </summary>
+        [DataMember]
+        private int apparentTemperatureLowTime;
+
+        /// <summary>
+        /// Unix time at which the daytime high apparent temperature occurs.
+        /// </summary>
+        [DataMember]
+        private int apparentTemperatureHighTime;
+
+        /// <summary>
+        /// Unix time at which the overnight low temperature occurs.
+        /// </summary>
+        [DataMember]
+        private int temperatureLowTime;
+
+        /// <summary>
+        /// Unix time at which the daytime high temperature occurs.
+        /// </summary>
+        [DataMember]
+        private int temperatureHighTime;
+
+        /// <summary>
+        /// Unix time at which the maximum UV index occurs.
+        /// </summary>
+        [DataMember]
+        private int uvIndexTime;
+
+        /// <summary>
+        /// Unix time at which the wind gust speed occurs.
+        /// </summary>
+        [DataMember]
+        private int windGustTime;
 
         /// <summary>
         /// Gets or sets the time of this data point.
@@ -170,14 +210,116 @@ namespace DarkSkyApi.Models
         public float PrecipitationProbability { get; set; }
 
         /// <summary>
+        /// Gets or sets the amount of snowfall accumulation expected to occur.
+        /// </summary>
+        [DataMember(Name = "precipAccumulation")]
+        public float PrecipitationAccumulation { get; set; }
+
+        /// <summary>
+        /// Gets or sets the overnight apparent ("feels like") low temperature.
+        /// </summary>
+        [DataMember(Name = "apparentTemperatureLow")]
+        public float ApparentLowTemperature { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the overnight apparent low temperature occurs.
+        /// </summary>
+        public DateTimeOffset ApparentLowTemperatureTime
+        {
+            get
+            {
+                return apparentTemperatureLowTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                apparentTemperatureLowTime = value.ToUnixTime();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the daytime apparent ("feels like") high temperature.
+        /// </summary>
+        [DataMember(Name = "apparentTemperatureHigh")]
+        public float ApparentHighTemperature { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the daytime apparent high temperature occurs.
+        /// </summary>
+        public DateTimeOffset ApparentHighTemperatureTime
+        {
+            get
+            {
+                return apparentTemperatureHighTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                apparentTemperatureHighTime = value.ToUnixTime();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the overnight low temperature.
+        /// </summary>
+        [DataMember(Name = "temperatureLow")]
+        public float LowTemperature { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the overnight low temperature occurs.
+        /// </summary>
+        public DateTimeOffset LowTemperatureTime
+        {
+            get
+            {
+                return temperatureLowTime.ToDateTimeOffset();
+            }
+            
+            set
+            {
+                temperatureLowTime = value.ToUnixTime();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the daytime high temperature.
+        /// </summary>
+        [DataMember(Name = "temperatureHigh")]
+        public float HighTemperature { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the daytime high temperature occurs.
+        /// </summary>
+        public DateTimeOffset HighTemperatureTime
+        {
+            get
+            {
+                return temperatureHighTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                temperatureHighTime = value.ToUnixTime();
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the air temperature.
+        /// </summary>
+        [DataMember(Name = "temperature")]
+        public float Temperature { get; set; }
+
+        /// <summary>
         /// Gets or sets the minimum (lowest) temperature for the day.
         /// </summary>
+        [Obsolete("Deprecated - consider using LowTemperature instead.")]
         [DataMember(Name = "temperatureMin")]
         public float MinTemperature { get; set; }
 
         /// <summary>
         /// Gets or sets the time at which the minimum (lowest) temperature occurs.
         /// </summary>
+        [Obsolete("Deprecated - consider using LowTemperatureTime instead.")]
         public DateTimeOffset MinTemperatureTime
         {
             get
@@ -194,12 +336,14 @@ namespace DarkSkyApi.Models
         /// <summary>
         /// Gets or sets the maximum (highest) temperature for the day.
         /// </summary>
+        [Obsolete("Deprecated - consider using HighTemperature instead.")]
         [DataMember(Name = "temperatureMax")]
         public float MaxTemperature { get; set; }
 
         /// <summary>
         /// Gets or sets the time at which the maximum (highest) temperature occurs.
         /// </summary>
+        [Obsolete("Deprecated - consider using HighTemperatureTime instead.")]
         public DateTimeOffset MaxTemperatureTime
         {
             get
@@ -216,12 +360,14 @@ namespace DarkSkyApi.Models
         /// <summary>
         /// Gets or sets the apparent ("feels like") minimum temperature.
         /// </summary>
+        [Obsolete("Deprecated - consider using ApparentLowTemperature instead.")]
         [DataMember(Name = "apparentTemperatureMin")]
         public float ApparentMinTemperature { get; set; }
 
         /// <summary>
         /// Gets or sets the time at which the apparent minimum temperature occurs.
         /// </summary>
+        [Obsolete("Deprecated - consider using ApparentLowTemperatureTime instead.")]
         public DateTimeOffset ApparentMinTemperatureTime
         {
             get
@@ -238,12 +384,14 @@ namespace DarkSkyApi.Models
         /// <summary>
         /// Gets or sets the apparent ("feels like") maximum temperature.
         /// </summary>
+        [Obsolete("Deprecated - consider using ApparentHighTemperature instead.")]
         [DataMember(Name = "apparentTemperatureMax")]
         public float ApparentMaxTemperature { get; set; }
 
         /// <summary>
         /// Gets or sets the time at which the apparent maximum temperature occurs.
         /// </summary>
+        [Obsolete("Deprecated - consider using ApparentHighTemperatureTime instead.")]
         public DateTimeOffset ApparentMaxTemperatureTime
         {
             get
@@ -282,6 +430,28 @@ namespace DarkSkyApi.Models
         public float WindBearing { get; set; }
 
         /// <summary>
+        /// Gets or sets the wind gust speed.
+        /// </summary>
+        [DataMember(Name = "windGust")]
+        public float WindGust { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the wind gust speed occurs.
+        /// </summary>
+        public DateTimeOffset WindGustTime
+        {
+            get
+            {
+                return windGustTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                windGustTime = value.ToUnixTime();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the average visibility (capped at 10 miles).
         /// </summary>
         [DataMember(Name = "visibility")]
@@ -312,9 +482,18 @@ namespace DarkSkyApi.Models
         public float UVIndex { get; set; }
 
         /// <summary>
-        /// Gets or sets the UNIX time when the maximum uvIndex occurs during a given day.
+        /// Gets or sets the time at which the maximum UV index occurs.
         /// </summary>
-        [DataMember(Name = "uvIndexTime")]
-        public double UVIndexTime { get; set; }
+        public DateTimeOffset UVIndexTime {
+            get
+            {
+                return uvIndexTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                uvIndexTime = value.ToUnixTime();
+            }
+        }
     }
 }
