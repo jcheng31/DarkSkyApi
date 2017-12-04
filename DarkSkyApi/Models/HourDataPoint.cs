@@ -126,5 +126,11 @@ namespace DarkSkyApi.Models
         /// </summary>
         [DataMember(Name = "uvIndex")]
         public float UVIndex { get; set; }
+
+        /// <summary>
+        /// Gets or sets the wind gust speed.
+        /// </summary>
+        [DataMember(Name = "windGust")]
+        public float WindGust { get; set; }
     }
 }

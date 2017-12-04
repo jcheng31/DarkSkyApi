@@ -94,6 +94,12 @@ namespace DarkSkyApi.Models
         private int uvIndexTime;
 
         /// <summary>
+        /// Unix time at which the wind gust speed occurs.
+        /// </summary>
+        [DataMember]
+        private int windGustTime;
+
+        /// <summary>
         /// Gets or sets the time of this data point.
         /// </summary>
         public DateTimeOffset Time
@@ -416,6 +422,28 @@ namespace DarkSkyApi.Models
         /// </summary>
         [DataMember(Name = "windBearing")]
         public float WindBearing { get; set; }
+
+        /// <summary>
+        /// Gets or sets the wind gust speed.
+        /// </summary>
+        [DataMember(Name = "windGust")]
+        public float WindGust { get; set; }
+
+        /// <summary>
+        /// Gets or sets the time at which the wind gust speed occurs.
+        /// </summary>
+        public DateTimeOffset WindGustTime
+        {
+            get
+            {
+                return windGustTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                windGustTime = value.ToUnixTime();
+            }
+        }
 
         /// <summary>
         /// Gets or sets the average visibility (capped at 10 miles).
