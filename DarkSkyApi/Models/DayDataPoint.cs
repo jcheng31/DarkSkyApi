@@ -210,6 +210,12 @@ namespace DarkSkyApi.Models
         public float PrecipitationProbability { get; set; }
 
         /// <summary>
+        /// Gets or sets the amount of snowfall accumulation expected to occur.
+        /// </summary>
+        [DataMember(Name = "precipAccumulation")]
+        public float PrecipitationAccumulation { get; set; }
+
+        /// <summary>
         /// Gets or sets the overnight apparent ("feels like") low temperature.
         /// </summary>
         [DataMember(Name = "apparentTemperatureLow")]

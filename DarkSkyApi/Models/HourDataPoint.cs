@@ -61,6 +61,12 @@ namespace DarkSkyApi.Models
 		[DataMember(Name = "precipType")]
 		public string PrecipitationType { get; set; }
 
+        /// <summary>
+        /// Gets or sets the amount of snowfall accumulation expected to occur.
+        /// </summary>
+        [DataMember(Name = "precipAccumulation")]
+        public float PrecipitationAccumulation { get; set; }
+
 		/// <summary>
 		/// Gets or sets the temperature.
 		/// </summary>
