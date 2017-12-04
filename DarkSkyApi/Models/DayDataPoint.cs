@@ -88,6 +88,12 @@ namespace DarkSkyApi.Models
         private int temperatureHighTime;
 
         /// <summary>
+        /// Unix time at which the maximum UV index occurs.
+        /// </summary>
+        [DataMember]
+        private int uvIndexTime;
+
+        /// <summary>
         /// Gets or sets the time of this data point.
         /// </summary>
         public DateTimeOffset Time
@@ -442,9 +448,18 @@ namespace DarkSkyApi.Models
         public float UVIndex { get; set; }
 
         /// <summary>
-        /// Gets or sets the UNIX time when the maximum uvIndex occurs during a given day.
+        /// Gets or sets the time at which the maximum UV index occurs.
         /// </summary>
-        [DataMember(Name = "uvIndexTime")]
-        public double UVIndexTime { get; set; }
+        public DateTimeOffset UVIndexTime {
+            get
+            {
+                return uvIndexTime.ToDateTimeOffset();
+            }
+
+            set
+            {
+                uvIndexTime = value.ToUnixTime();
+            }
+        }
     }
 }
