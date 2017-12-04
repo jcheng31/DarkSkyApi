@@ -40,6 +40,7 @@
     <Compile Include="DarkSkyService.cs" />
     <Compile Include="Helpers.cs" />
     <Compile Include="Models\Alert.cs" />
+    <Compile Include="Models\AlertSeverity.cs" />
     <Compile Include="Models\CurrentDataPoint.cs" />
     <Compile Include="Models\DailyForecast.cs" />
     <Compile Include="Models\DayDataPoint.cs" />
